@@ -1,4 +1,4 @@
-# pte-portal-frontend
+# Alumni web
 
 ## Table of Contents
 
