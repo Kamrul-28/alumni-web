@@ -1,0 +1,6 @@
+# Editor directories and files
+
+.idea
+.DS_Store
+
+next-server-tailwind
