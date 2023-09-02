@@ -4,8 +4,6 @@
 
 - [Extension](#extension)
 - [Intallation Process](#installation-process)
-- [Intallation Process](#installation-process)
-- [Activate Testing](#activate-testing)
 - [Project Run](./client/README.md#run-command)
 
 Use vscode to get better experience
