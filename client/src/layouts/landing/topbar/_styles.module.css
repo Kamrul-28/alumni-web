@@ -1,0 +1,32 @@
+.select2-dropdown {
+    @apply rounded-b-lg shadow-md;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    color: theme('colors.primary.main');
+}
+
+.logo {
+    display: flex;
+    width: 100px;
+    height: 100%;
+}
+
+.nav_items {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav_link {
+    font-size: theme('fontSize.lg');
+    font-weight: theme('fontWeight.medium');
+}
+
+.nav_link:hover {
+    text-decoration: underline;
+}
