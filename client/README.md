@@ -23,6 +23,7 @@ Plugins
 - funcion name: camelCase
 - react components follows `.jsx` others `.js`
 - every folder includes: `index.jsx` or `_styles.module.css`
+- every folder might include: `_data_.js` for the constant data.
 - `_styles.module.css` includes only design and index.jsx only logic.
 - all sub-features should inside the main folder.
 - common feature should be inside the component _features_ folder.

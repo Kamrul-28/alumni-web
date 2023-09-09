@@ -1,2 +1,2 @@
-// export * from "./text";
-// export { default as InputFields } from "./text";
+export * from "./outline";
+export { default as OutlineInputField } from "./outline";

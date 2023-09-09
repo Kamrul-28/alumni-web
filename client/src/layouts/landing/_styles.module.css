@@ -1,0 +1,10 @@
+.root {
+    width: 100%;
+    max-width: theme('screens.xxl');
+}
+
+.container {
+    width: 100%;
+    min-height: 75vh;
+    padding: theme('padding.container');
+}

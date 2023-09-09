@@ -1,0 +1,21 @@
+.button {
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: theme('fontSize.lg');
+    font-weight: theme('fontWeight.medium');
+    background-color: theme('colors.primary.light') !important;
+    color: theme('colors.primary.main');
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.button:hover {
+    background-color: theme('colors.secondary.light') !important;
+    color: theme('colors.secondary.main');
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+}

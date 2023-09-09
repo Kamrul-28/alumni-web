@@ -13,9 +13,9 @@ const FieldController = forwardRef((props, ref) => {
           {React.Children.map(children, (child) =>
             React.cloneElement(child, {
               ...field,
+              required: required,
               error: Boolean(error),
               helperText: error?.message,
-              required: required,
             }),
           )}
         </>

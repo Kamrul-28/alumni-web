@@ -1,0 +1,16 @@
+.button {
+    padding: 4px;
+    border-radius: 5px;
+    font-size: theme('fontSize.lg');
+    font-weight: theme('fontWeight.medium');
+    color: theme('colors.primary.main');
+}
+
+.button:hover {
+    background-color: theme('colors.primary.light');
+}
+
+.icon {
+    height: 24px;
+    width: 24px;
+}

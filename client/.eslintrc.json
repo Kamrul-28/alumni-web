@@ -114,10 +114,10 @@
             "group": "internal",
             "position": "after"
           }
-        ],
-        "pathGroupsExcludedImportTypes": [
-          "react"
         ]
+        // "pathGroupsExcludedImportTypes": [
+        //   "react"
+        // ]
       }
     ],
     "sort-imports": [
