@@ -26,4 +26,13 @@ You are encourage to install the to get better experience
 - `npm install` (install required npm packages)
 - configure enviroment variables for [development](./client/.env.development) | [staging](./client/.env.staging) | [testing](./client/.env.testing) | [production](./client/.env.production)
 
+## Contrubution
+
+- forked the repository to your account.
+- switch to dev branch.
+- upstream and reabase with remote.
+- create new branch according to the features.
+- finish your task.
+- create pull request to remote dev branch.
+
 **Note:** To know more about internals follow [Project Instruction](./client/README.md)
