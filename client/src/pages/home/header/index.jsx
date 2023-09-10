@@ -1,5 +1,5 @@
 import { OutlinedButton } from "components/widgets/buttons";
-import { ArrowRightIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 import DATA, { SOCIAL_CONTACTS } from "./_data_";
 import _styles from "./_styles.module.css";
