@@ -1,0 +1,74 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: theme('padding.container');
+    margin: 30px 0px;
+}
+
+.title {
+    font-size: 2rem;
+    line-height: 1;
+    text-transform: capitalize;
+    font-weight: theme('fontWeight.bold');
+    color: theme('colors.primary.main');
+
+}
+
+.description {
+    max-width: 80ch;
+    font-size: 1rem;
+    word-wrap: break-word;
+}
+
+.card_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card_img {
+    border-radius: 5px;
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+}
+
+.card time {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 60px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: theme('fontWeight.medium');
+    background-color: theme('colors.primary.main');
+    color: theme('colors.primary.light');
+    padding: 10px;
+}
+
+.card h6 {
+    font-size: theme('fontSize.lg');
+    font-weight: theme('fontWeight.medium')
+}
+
+.card p {
+    font-size: theme('fontSize.base');
+}
+
+.card_button {
+    cursor: pointer;
+    font-weight: theme('fontWeight.medium');
+    color: theme('colors.primary.main');
+}
+
+.card_button:hover {
+    color: theme('colors.secondary.main');
+}
