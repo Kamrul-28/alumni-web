@@ -16,6 +16,13 @@
     gap: 20px;
 }
 
+.nav_actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
 .nav_link {
     font-size: theme('fontSize.lg');
     font-weight: theme('fontWeight.medium');
@@ -74,6 +81,10 @@
     }
 
     .nav_items {
+        display: none;
+    }
+
+    .nav_actions {
         display: none;
     }
 

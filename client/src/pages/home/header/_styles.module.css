@@ -4,14 +4,13 @@
     grid-template-columns: 1fr 5fr;
     align-items: center;
     background-color: theme("colors.primary.light");
-    padding: theme("padding.container") 0px;
+    padding: theme('padding.container');
 }
 
 .social_actions {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin: theme("padding.container")
 }
 
 .social_link {

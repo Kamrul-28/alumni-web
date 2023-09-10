@@ -1,10 +1,12 @@
 .root {
     width: 100%;
     max-width: theme('screens.xxl');
+    margin: 0px auto;
 }
 
 .container {
     width: 100%;
     min-height: 75vh;
-    padding: theme('padding.container');
+    /* padding: theme('padding.container');
+    padding-top: 0; */
 }

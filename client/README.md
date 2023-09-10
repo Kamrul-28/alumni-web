@@ -81,6 +81,8 @@ Plugins
 - [React Hook Form](https://react-hook-form.com/)
 - [React Query](https://tanstack.com/query/v3/)
 - [Day.js](https://www.npmjs.com/package/dayjs)
+- [Headless Ui](https://headlessui.com/)
+- [Clsx](https://www.npmjs.com/package/clsx)
 
 ### Dev Packages
 
@@ -88,7 +90,8 @@ Plugins
 - [Eslint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 - [Eslint Import Rule](https://www.npmjs.com/package/eslint-plugin-import)
+- [Tailwind Css](https://tailwindcss.com/)
 
 ### Future Packages:
 
-- [Lightening css](https://lightningcss.dev/css-modules.html)
+- [Lightening Css](https://lightningcss.dev/css-modules.html)

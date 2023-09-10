@@ -51,7 +51,7 @@ function Topbar() {
             </Fragment>
           ))}
         </div>
-        <div className={_styles.nav_items}>
+        <div className={_styles.nav_actions}>
           <Link to="/login">
             <FilledButton endIcon={ArrowRightIcon}>Join Now</FilledButton>
           </Link>
