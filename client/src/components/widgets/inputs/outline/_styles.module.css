@@ -9,11 +9,11 @@
 }
 
 .label {
-    font-size: 1rem;
+    font-size: theme('fontSize.lg');
 }
 
 .helper_message {
-    font-size: 12px;
+    font-size: theme('fontSize.sm');
     color: theme('colors.text.secondary');
 }
 

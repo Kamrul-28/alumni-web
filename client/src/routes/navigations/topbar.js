@@ -2,16 +2,6 @@ const TOPBAR_NAVIGATIONS = [
   {
     title: "Events",
     path: "/events",
-    nested: [
-      {
-        title: "news",
-        path: "/news",
-      },
-      {
-        title: "albums",
-        path: "/albums",
-      },
-    ],
   },
   { title: "Alumni", path: "/alumni" },
   { title: "Donation", path: "/donation" },

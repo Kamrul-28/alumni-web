@@ -5,7 +5,9 @@ import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 import { COVER1, COVER2, COVER3 } from "assets/images";
 
-import DATA, { SOCIAL_CONTACTS } from "./_data_";
+import { SOCIAL_CONTACTS } from "data/site.config";
+
+import DATA from "./_data_";
 import _styles from "./_styles.module.css";
 
 const Header = () => {

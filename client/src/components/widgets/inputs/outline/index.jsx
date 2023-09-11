@@ -17,7 +17,7 @@ const OutlineInputField = forwardRef((props, ref) => {
   } = props;
 
   return (
-    <div className={clsx(_styles.container, error && _styles.error)}>
+    <div className={clsx(_styles.container, { [_styles.error]: error })}>
       {label && (
         <label className={_styles.label}>
           {required && <span>*</span>}

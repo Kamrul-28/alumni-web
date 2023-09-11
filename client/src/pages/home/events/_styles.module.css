@@ -3,7 +3,8 @@
     flex-direction: column;
     gap: 20px;
     padding: theme('padding.container');
-    margin: 30px 0px;
+    margin-top: 30px;
+    margin-bottom: 0px;
 }
 
 .title {
@@ -19,6 +20,7 @@
     max-width: 80ch;
     font-size: 1rem;
     word-wrap: break-word;
+    color: theme('colors.text.secondary');
 }
 
 .card_container {
@@ -61,14 +63,5 @@
 
 .card p {
     font-size: theme('fontSize.base');
-}
-
-.card_button {
-    cursor: pointer;
-    font-weight: theme('fontWeight.medium');
-    color: theme('colors.primary.main');
-}
-
-.card_button:hover {
-    color: theme('colors.secondary.main');
+    color: theme('colors.text.secondary');
 }

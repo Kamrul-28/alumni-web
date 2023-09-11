@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import _styles from "./_styles.module.css";
 
 function FilledButton(props) {
-  const { startIcon, endIcon, onClick, children, className, type } = props;
+  const { startIcon, endIcon, onClick, children, className, type, color } = props;
 
   const Icon = endIcon || startIcon;
 
@@ -11,7 +11,10 @@ function FilledButton(props) {
     <button
       type={type}
       onClick={onClick}
-      className={clsx(_styles.button, className)}>
+      className={clsx(_styles.button, className, {
+        [_styles.secondary]: color === "secondary",
+        [_styles.primary]: color === "primary",
+      })}>
       {startIcon && <Icon className={_styles.icon} />}
       {children}
       {endIcon && <Icon className={_styles.icon} />}
@@ -26,6 +29,7 @@ FilledButton.propTypes = {
   type: PropTypes.string,
   endIcon: PropTypes.elementType,
   startIcon: PropTypes.elementType,
+  color: PropTypes.oneOf(["primary", "secondary"]),
 };
 
 FilledButton.defaultProps = {

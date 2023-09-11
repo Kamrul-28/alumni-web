@@ -1,13 +1,16 @@
 .button {
-    padding: 4px;
-    border-radius: 5px;
+    cursor: pointer;
     font-size: theme('fontSize.lg');
     font-weight: theme('fontWeight.medium');
     color: theme('colors.primary.main');
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .button:hover {
-    background-color: theme('colors.primary.light');
+    color: theme('colors.secondary.main');
+
 }
 
 .primary {
@@ -31,6 +34,6 @@
 }
 
 .icon {
-    height: 1.5em;
-    width: 1.5em;
+    width: 1em;
+    height: 1em;
 }

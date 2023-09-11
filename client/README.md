@@ -36,8 +36,7 @@ Plugins
 - assets: images and icons and other resources.
 - components:
 
-  - \_\_controller: common used styled components
-  - \_\_providers: common used styled components
+  - \_controller: common used styled components
   - \_styles: common used styled components
   - widgets: customly creted automic components.
   - modules: same as widgets, ui specific.

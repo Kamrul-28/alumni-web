@@ -6,3 +6,6 @@ export { default as FilledButton } from "./filled";
 
 export * from "./outlined";
 export { default as OutlinedButton } from "./outlined";
+
+export * from "./text";
+export { default as TextButton } from "./text";
