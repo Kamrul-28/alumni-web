@@ -6,6 +6,7 @@ export default {
   colors: colors,
   padding: {
     container: "30px",
+    card: "20px",
   },
   fontSize: {
     sm: ["0.75rem", { lineHeight: "1rem" }],
