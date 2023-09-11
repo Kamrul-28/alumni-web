@@ -9,9 +9,9 @@ export default {
     dark: "#37379c",
   },
   secondary: {
-    light: "#f3fde8",
-    main: "#4c9e12",
-    dark: "#326014",
+    light: "#fef8ee",
+    main: "#dd6419",
+    dark: "#923d1a",
   },
   info: {
     light: "#eefcfd",
@@ -33,7 +33,7 @@ export default {
     paper: "#F9F9F9",
   },
   text: {
-    primary: "#595B5C",
-    secondary: "#8F9193",
+    primary: "#888",
+    secondary: "#595B5C",
   },
 };

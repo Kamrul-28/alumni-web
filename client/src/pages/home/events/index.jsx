@@ -1,5 +1,4 @@
-import React from "react";
-
+import { TextButton } from "components/widgets/buttons";
 import { formatShortMonth } from "utils/date-helper";
 import DATA, { CARDS_ITEMS } from "./_data_";
 import _styles from "./_styles.module.css";
@@ -16,7 +15,7 @@ function Events() {
             <time className={_styles.card_date}>{formatShortMonth(date)}</time>
             <h6>{title}</h6>
             <p>{description}</p>
-            <span className={_styles.card_button}>Learn More</span>
+            <TextButton>Learn More</TextButton>
           </div>
         ))}
       </div>

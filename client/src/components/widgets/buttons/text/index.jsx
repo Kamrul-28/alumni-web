@@ -2,13 +2,12 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import _styles from "./_styles.module.css";
 
-function OutlinedButton(props) {
-  const { startIcon, endIcon, onClick, children, className, type, color } = props;
+function TextButton(props) {
+  const { startIcon, endIcon, onClick, children, className, color } = props;
   const Icon = endIcon || startIcon;
 
   return (
-    <button
-      type={type}
+    <span
       onClick={onClick}
       className={clsx(_styles.button, className, {
         [_styles.secondary]: color === "secondary",
@@ -17,12 +16,11 @@ function OutlinedButton(props) {
       {startIcon && <Icon className={_styles.icon} />}
       {children}
       {endIcon && <Icon className={_styles.icon} />}
-    </button>
+    </span>
   );
 }
 
-OutlinedButton.propTypes = {
-  type: PropTypes.string,
+TextButton.propTypes = {
   onClick: PropTypes.func,
   children: PropTypes.node,
   className: PropTypes.string,
@@ -31,8 +29,6 @@ OutlinedButton.propTypes = {
   color: PropTypes.oneOf(["primary", "secondary"]),
 };
 
-OutlinedButton.defaultProps = {
-  type: "button",
-};
+TextButton.defaultProps = {};
 
-export default OutlinedButton;
+export default TextButton;

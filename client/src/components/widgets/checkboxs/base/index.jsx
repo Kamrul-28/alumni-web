@@ -8,7 +8,7 @@ const BaseCheckbox = forwardRef((props, ref) => {
   const { label, value, error, required, helperText, className, ...others } = props;
 
   return (
-    <div className={clsx(_styles.container, error && _styles.error)}>
+    <div className={clsx(_styles.container, { [_styles.error]: error })}>
       <div className={_styles.flex_row}>
         <input
           ref={ref}
