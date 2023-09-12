@@ -52,8 +52,8 @@
 
 .description {
     max-width: 80ch;
-    font-size: 1rem;
     word-wrap: break-word;
+    font-size: theme('fontSize.lg');
 }
 
 .action_buttons {

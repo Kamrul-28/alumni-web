@@ -9,9 +9,9 @@ export default {
     dark: "#37379c",
   },
   secondary: {
-    light: "#fef8ee",
-    main: "#dd6419",
-    dark: "#923d1a",
+    light: "#fef5ee",
+    main: "#dd4919",
+    dark: "#922c1a",
   },
   info: {
     light: "#eefcfd",

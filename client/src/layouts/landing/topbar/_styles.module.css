@@ -25,7 +25,7 @@
 
 .nav_link {
     font-size: theme('fontSize.lg');
-    font-weight: theme('fontWeight.medium');
+    font-weight: theme('fontWeight.semibold');
 }
 
 .nav_link:hover {
@@ -98,5 +98,4 @@
     .mobile_menu_container {
         max-width: 100%;
     }
-
 }

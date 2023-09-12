@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
 import { TextButton } from "components/widgets/buttons";
+import { LinkButton } from "components/widgets/buttons";
+
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
 import BOTTOMBAR_NAVIGATIONS from "routes/navigations/bottombar";
@@ -27,19 +29,15 @@ function Bottombar() {
       <div className={_styles.section_container}>
         <div className={_styles.link_container}>
           <h2 className={_styles.link_title}>Contacts</h2>
-          <a
-            href={`mailto:${SITE_CONFIG.contacts.email}`}
-            className={_styles.contact_link}>
+          <LinkButton href={`mailto:${SITE_CONFIG.contacts.email}`}>
             Email:<span> {SITE_CONFIG.contacts.email}</span>
-          </a>
-          <a
-            href={`tel:${SITE_CONFIG.contacts.phone}`}
-            className={_styles.contact_link}>
+          </LinkButton>
+          <LinkButton href={`tel:${SITE_CONFIG.contacts.phone}`}>
             Phone:<span>{SITE_CONFIG.contacts.phone}</span>
-          </a>
-          <span className={_styles.contact_span}>
-            {SITE_CONFIG.contacts.address}
-          </span>
+          </LinkButton>
+          <LinkButton href={SITE_CONFIG.contacts.map_link}>
+            Address:<span> {SITE_CONFIG.contacts.address}</span>
+          </LinkButton>
         </div>
         <div className={_styles.link_container}>
           <h2 className={_styles.link_title}>Useful Links</h2>
