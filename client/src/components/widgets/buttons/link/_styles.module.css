@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    font-size: theme('fontSize.lg');
+    font-size: theme('fontSize.base');
     font-weight: theme('fontWeight.medium');
     color: 'inherit';
 }
