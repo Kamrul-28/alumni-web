@@ -1,0 +1,23 @@
+.container {
+    padding: theme('padding.container');
+    /* padding-top: 0; */
+}
+
+.card_wraper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: theme('padding.card');;
+}
+
+@media (max-width: theme('screens.lg')) {
+    .card_wraper  {
+        grid-template-columns: 1fr 1fr ;
+    }
+}
+
+@media (max-width: theme('screens.sm')) {
+    .card_wraper {
+        grid-template-columns: 1fr ;
+    }
+}
+
