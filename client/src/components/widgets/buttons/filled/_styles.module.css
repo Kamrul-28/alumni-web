@@ -3,39 +3,40 @@
     border-radius: 5px;
     font-size: theme('fontSize.lg');
     font-weight: theme('fontWeight.medium');
-    background-color: theme('colors.primary.light') !important;
-    color: theme('colors.primary.main');
+    background-color: theme('colors.primary.main') !important;
+    color: theme('colors.primary.light');
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
 .button:hover {
-    background-color: theme('colors.secondary.light') !important;
-    color: theme('colors.secondary.main');
+    background-color: theme('colors.secondary.main') !important;
+    color: theme('colors.secondary.light');
 }
 
 .primary {
-    background-color: theme('colors.primary.light') !important;
-    color: theme('colors.primary.main');
+    background-color: theme('colors.primary.main') !important;
+    color: theme('colors.primary.light');
 }
 
 .primary:hover {
-    background-color: theme('colors.secondary.light') !important;
-    color: theme('colors.secondary.main');
+    background-color: theme('colors.secondary.main') !important;
+    color: theme('colors.secondary.light');
 }
 
 .secondary {
-    background-color: theme('colors.secondary.light') !important;
-    color: theme('colors.secondary.main');
+    background-color: theme('colors.secondary.main') !important;
+    color: theme('colors.secondary.light');
 }
 
 .secondary:hover {
-    background-color: theme('colors.primary.light') !important;
-    color: theme('colors.primary.main');
+    background-color: theme('colors.primary.main') !important;
+    color: theme('colors.primary.light');
 }
 
 .icon {
     width: 1em;
     height: 1em;
+    fill: none;
 }
