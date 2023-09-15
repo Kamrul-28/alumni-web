@@ -5,8 +5,8 @@
 }
 
 .title {
-    font-size: 1.5rem;
     line-height: 1;
+    font-size: theme('fontSize.xl');
     color: theme('colors.primary.main');
     font-weight: theme('fontWeight.medium');
 }

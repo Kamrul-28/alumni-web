@@ -16,7 +16,7 @@
 .description {
     max-width: 80ch;
     word-wrap: break-word;
-    font-size: theme('fontSize.lg');
+    font-size: theme('fontSize.md');
     color: theme('colors.text.secondary');
 }
 
@@ -64,7 +64,7 @@
 }
 
 .card_content h2 {
-    font-size: theme('fontSize.xl');
+    font-size: theme('fontSize.lg');
     font-weight: theme('fontWeight.medium');
 }
 
