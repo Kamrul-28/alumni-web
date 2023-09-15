@@ -59,7 +59,7 @@
 
 .link_title {
     margin-bottom: 10px;
-    font-size: theme('fontSize.xl');
+    font-size: theme('fontSize.lg');
     font-weight: theme('fontWeight.medium');
 }
 

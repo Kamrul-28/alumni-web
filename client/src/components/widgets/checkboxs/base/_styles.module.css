@@ -9,7 +9,7 @@
 }
 
 .label {
-    font-size: theme('fontSize.lg');
+    font-size: theme('fontSize.md');
 }
 
 .helper_message {

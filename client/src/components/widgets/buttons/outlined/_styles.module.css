@@ -1,7 +1,7 @@
 .button {
     padding: 7px 16px;
     border-radius: 5px;
-    font-size: theme('fontSize.lg');
+    font-size: theme('fontSize.md');
     font-weight: theme('fontWeight.medium');
     border-radius: 5px;
     border: 1px solid;

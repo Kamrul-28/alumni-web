@@ -50,7 +50,7 @@
 }
 
 .card_content h2 {
-    font-size: theme('fontSize.xl');
+    font-size: theme('fontSize.lg');
     font-weight: theme('fontWeight.medium')
 }
 
@@ -72,7 +72,7 @@
 }
 
 .social_icon {
-    font-size: theme('fontSize.xl');
+    font-size: theme('fontSize.lg');
 }
 
 
