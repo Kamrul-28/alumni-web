@@ -1,0 +1,14 @@
+.container { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: theme('padding.card');
+}
+
+.header_left {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    color: theme('colors.text.secondary')
+}
