@@ -1,5 +1,8 @@
 import { TextButton } from "components/widgets/buttons";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
+
 import { formatShortMonth } from "utils/date-helper";
+
 import DATA, { CARDS_ITEMS } from "./_data_";
 import _styles from "./_styles.module.css";
 
@@ -11,11 +14,15 @@ function Events() {
       <div className={_styles.card_container}>
         {CARDS_ITEMS?.map(({ title, description, cover, date }) => (
           <div key={title} className={_styles.card}>
-            <img src={cover} alt={title} className={_styles.card_img} />
-            <time className={_styles.card_date}>{formatShortMonth(date)}</time>
-            <h6>{title}</h6>
-            <p>{description}</p>
-            <TextButton>Learn More</TextButton>
+            <img src={cover} alt={title} className={_styles.card_image} />
+            <time className={_styles.card_time}>{formatShortMonth(date)}</time>
+            <div className={_styles.card_content}>
+              <h2>{title}</h2>
+              <p>{description}</p>
+              <TextButton color="primary" endIcon={ChevronRightIcon}>
+                Learn More
+              </TextButton>
+            </div>
           </div>
         ))}
       </div>

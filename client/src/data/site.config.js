@@ -17,5 +17,6 @@ export default {
     email: "alumni@ku.ac.bd",
     phone: "012323213213",
     address: "Khulna, University",
+    map_link: "https://goo.gl/maps/4XyXkD4QwxYer6AL6",
   },
 };

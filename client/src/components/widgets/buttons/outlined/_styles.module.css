@@ -1,7 +1,7 @@
 .button {
     padding: 7px 16px;
     border-radius: 5px;
-    font-size: theme('fontSize.lg');
+    font-size: theme('fontSize.md');
     font-weight: theme('fontWeight.medium');
     border-radius: 5px;
     border: 1px solid;
@@ -18,22 +18,22 @@
 }
 
 .primary {
-    background-color: theme('colors.primary.light') !important;
+    border-color: theme('colors.primary.main');
     color: theme('colors.primary.main');
 }
 
 .primary:hover {
-    background-color: theme('colors.secondary.light') !important;
+    border-color: theme('colors.secondary.main');
     color: theme('colors.secondary.main');
 }
 
 .secondary {
-    background-color: theme('colors.secondary.light') !important;
+    border-color: theme('colors.secondary.main');
     color: theme('colors.secondary.main');
 }
 
 .secondary:hover {
-    background-color: theme('colors.primary.light') !important;
+    border-color: theme('colors.primary.main');
     color: theme('colors.primary.main');
 }
 
