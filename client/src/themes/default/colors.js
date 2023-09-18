@@ -30,7 +30,7 @@ export default {
   },
   background: {
     default: "#ffffff",
-    paper: "#F9F9F9",
+    primary: "#fafbfc",
   },
   text: {
     primary: "#888",
