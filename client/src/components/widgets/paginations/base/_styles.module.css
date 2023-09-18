@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.item {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.09);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: theme('fontSize.lg');
+    color: theme('colors.primary.main');
+    font-weight: theme('fontWeight.semibold');
+    background-color: theme('colors.common.white');
+
+}
+
+.icon {
+    font-size: theme('fontSize.base');
+}
+
+.item:hover {
+    color: theme('colors.secondary.main');
+}

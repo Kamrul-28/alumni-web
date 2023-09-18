@@ -6,6 +6,7 @@ import FacebookIcon from "./facebook.jsx";
 import SearchIcon from "./search.jsx";
 import TwitterIcon from "./twitter.jsx";
 import YoutubeIcon from "./youtube.jsx";
+import LinkdinIcon from "./linkdin.jsx";
 
 export {
   AddIcon,
@@ -13,6 +14,7 @@ export {
   EditIcon,
   EyeOpenIcon,
   FacebookIcon,
+  LinkdinIcon,
   SearchIcon,
   TwitterIcon,
   YoutubeIcon,
