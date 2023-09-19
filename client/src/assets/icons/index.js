@@ -1,4 +1,5 @@
 import AddIcon from "./add.jsx";
+import BookmarkIcon from "./bookmark.jsx";
 import DeleteIcon from "./delete.jsx";
 import EditIcon from "./edit.jsx";
 import EyeOpenIcon from "./eye-open.jsx";
@@ -9,6 +10,7 @@ import YoutubeIcon from "./youtube.jsx";
 
 export {
   AddIcon,
+  BookmarkIcon,
   DeleteIcon,
   EditIcon,
   EyeOpenIcon,
