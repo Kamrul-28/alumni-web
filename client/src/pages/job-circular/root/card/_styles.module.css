@@ -1,76 +1,51 @@
 .container {
-    width: 100%;
-    padding: theme('padding.card');
-    background-color: theme('colors.background.default');
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.06);
-    border-radius: 10px;  
+    padding: theme('padding.card');
 }
 
-.header {
+.header,
+.footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
 }
 
-.header_info {
+.header_info,
+.keyword_wraper {
     display: flex;
-    gap:10px;
-
+    align-items: center;
+    gap: 10px;
+    font-size: theme("fontSize.base");
+    color: theme('colors.text.secondary');
 }
 
 .header_icon {
-    width: 50px;
-    height: 50px;
-    border: 1px solid theme('colors.primary.light');
+    width: 3.5em;
+    height: 3.5em;
     border-radius: 10px;
+    border: 1px solid theme('colors.primary.light');
 }
 
 .header_details {
-    /*  */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .title {
     font-size: theme("fontSize.lg");
-    font-weight: theme('fontWeight.bold');
-    /* color: theme('colors.primary.main'); */
+    font-weight: theme('fontWeight.semibold');
+    color: theme('colors.primary.main');
 }
 
-.subtitle, .footer_left, .footer_right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap:10px;
-    color: theme('colors.text.secondary');
-    font-size: theme("fontSize.base");
-    flex-wrap: wrap;
-}
-
-@media(max-width: theme('screens.xs')) {
-    .subtitle, .footer_left {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-.dot {
-    font-size: 0.65em;
-}
-
-.text_wraper_box {
-    padding: 2px 10px;
+.keyword {
+    padding: 2px 8px;
     border-radius: 5px;
-    background-color: theme("colors.background.paper");
-}
-
-.status {
-    /* color: theme('colors.secondary.main');
-    font-size: theme("fontSize.base"); */
-}
-
-.header_right {
-    /*  */
+    background-color: theme("colors.primary.light");
 }
 
 .description {
@@ -82,16 +57,16 @@
     -webkit-box-orient: vertical;
 }
 
-.footer_wraper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    margin-top: 10px;
+.time {
+    font-size: theme("fontSize.base");
+    color: theme('colors.text.secondary');
 }
 
-.keyword_wraper_box {
-    padding: 2px 10px;
-    border-radius: 5px;
-    background-color: theme("colors.primary.light");
+
+@media(max-width: theme('screens.sm')) {
+
+    .subtitles,
+    .keyword_wraper {
+        flex-wrap: wrap;
+    }
 }

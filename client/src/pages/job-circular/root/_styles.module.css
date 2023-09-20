@@ -1,18 +1,19 @@
 .container {
+    display: flex;
+    flex-direction: column;
+    gap: theme('gap.section');
     padding: theme('padding.container');
-    background: theme("colors.background.paper");
+    background: theme("colors.background.primary");
 }
 
 .card_wraper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: theme('padding.card');;
+    gap: theme('gap.card');
 }
 
-@media (max-width: theme('screens.lg')) {
-    .card_wraper  {
-        grid-template-columns: 1fr ;
+@media (max-width: theme('screens.md')) {
+    .card_wraper {
+        grid-template-columns: 1fr;
     }
 }
-
-

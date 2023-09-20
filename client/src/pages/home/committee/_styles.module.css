@@ -23,7 +23,7 @@
 .card_container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 30px;
+    gap: theme('gap.card');
 }
 
 @media (max-width: theme('screens.lg')) {
