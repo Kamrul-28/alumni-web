@@ -8,6 +8,10 @@ export default {
     container: "30px",
     card: "20px",
   },
+  gap: {
+    section: "30px",
+    card: "30px",
+  },
   fontSize: {
     sm: ["0.75rem", { lineHeight: "0.875rem" }],
     base: ["0.875rem", { lineHeight: "1rem" }],

@@ -1,7 +1,7 @@
 .container {
     display: grid;
     grid-template-columns: 2fr 6fr;
-    gap: 30px;
+    gap: theme('gap.section');
     padding: theme('padding.container');
     color: theme('colors.common.white');
     background-color: theme('colors.primary.dark');
@@ -47,7 +47,7 @@
 .section_container {
     display: flex;
     justify-content: space-evenly;
-    gap: 30px;
+    gap: theme('gap.section');
 }
 
 

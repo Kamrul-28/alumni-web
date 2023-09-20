@@ -45,7 +45,7 @@
 @media (max-width: theme('screens.sm')) {
     .root {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: theme('gap.section');
     }
 
     .image {
