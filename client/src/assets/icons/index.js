@@ -1,4 +1,5 @@
 import AddIcon from "./add.jsx";
+import BookmarkIcon from "./bookmark.jsx";
 import DeleteIcon from "./delete.jsx";
 import EditIcon from "./edit.jsx";
 import EyeOpenIcon from "./eye-open.jsx";
@@ -10,6 +11,7 @@ import LinkdinIcon from "./linkdin.jsx";
 
 export {
   AddIcon,
+  BookmarkIcon,
   DeleteIcon,
   EditIcon,
   EyeOpenIcon,

@@ -6,48 +6,74 @@
     border-radius: 10px;  
 }
 
-.card_info_wraper{
+.header {
     display: flex;
-    flex-direction: column;
-    text-align: center;
     align-items: center;
-    justify-content: center;
-}
-
-.avatar {
-    width: 100px;
-    height: 100px;
-    border: 3px solid theme('colors.primary.light');
-    border-radius: 50%;
+    justify-content: space-between;
     margin-bottom: 10px;
 }
 
-.status {
-    color: theme('colors.secondary.main');
-    font-size: theme("fontSize.base");
+.header_info {
+    display: flex;
+    gap:10px;
+
 }
 
-.status_wraper {
-    margin-top: 10px;
-    padding: 5px 20px;
+.header_icon {
+    width: 50px;
+    height: 50px;
+    border: 1px solid theme('colors.primary.light');
     border-radius: 10px;
-    background-color: theme("colors.secondary.light");
+}
+
+.header_details {
+    /*  */
 }
 
 .title {
-    font-size: theme("fontSize.base");
+    font-size: theme("fontSize.lg");
     font-weight: theme('fontWeight.bold');
-    color: theme('colors.text.secondary');
+    /* color: theme('colors.primary.main'); */
 }
 
-.category {
-    font-size: theme("fontSize.xl");
-    font-weight: theme('fontWeight.bold');
+.subtitle, .footer_left, .footer_right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap:10px;
     color: theme('colors.text.secondary');
+    font-size: theme("fontSize.base");
+    flex-wrap: wrap;
+}
+
+@media(max-width: theme('screens.xs')) {
+    .subtitle, .footer_left {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.dot {
+    font-size: 0.65em;
+}
+
+.text_wraper_box {
+    padding: 2px 10px;
+    border-radius: 5px;
+    background-color: theme("colors.background.paper");
+}
+
+.status {
+    /* color: theme('colors.secondary.main');
+    font-size: theme("fontSize.base"); */
+}
+
+.header_right {
+    /*  */
 }
 
 .description {
-    margin-top: 10px;
     color: theme('colors.text.secondary');
     overflow: hidden;
     text-overflow: ellipsis;
@@ -56,10 +82,16 @@
     -webkit-box-orient: vertical;
 }
 
-.card_action{
-    margin-top: 20px;
+.footer_wraper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap:10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.keyword_wraper_box {
+    padding: 2px 10px;
+    border-radius: 5px;
+    background-color: theme("colors.primary.light");
 }
