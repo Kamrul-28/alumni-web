@@ -1,7 +1,6 @@
 .container {
     display: flex;
     flex-direction: column;
-    color: theme('colors.primary.main');
 }
 
 .error {
@@ -10,6 +9,7 @@
 
 .label {
     font-size: theme('fontSize.md');
+    color: theme('colors.text.secondary');
 }
 
 .helper_message {

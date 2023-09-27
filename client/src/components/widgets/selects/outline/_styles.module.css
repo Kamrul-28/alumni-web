@@ -4,6 +4,10 @@
     color: theme('colors.primary.main');
 }
 
+.fullwidth {
+    width: 100%;
+}
+
 .error {
     color: theme('colors.error.main');
 }
@@ -20,7 +24,9 @@
 .select_field {
     padding: 9.5px 16px;
     border-radius: 5px;
-    border: 1px solid;
     cursor: pointer;
     outline: none;
+    font-size: theme('fontSize.md');
+    color: theme('colors.text.secondary');
+    border: 1px solid theme('colors.primary.main');
 }

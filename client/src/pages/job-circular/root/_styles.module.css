@@ -3,7 +3,6 @@
     flex-direction: column;
     gap: theme('gap.section');
     padding: theme('padding.container');
-    background: theme("colors.background.primary");
 }
 
 .card_wraper {

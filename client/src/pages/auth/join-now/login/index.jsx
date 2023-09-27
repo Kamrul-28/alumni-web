@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
 
 import { FieldController } from "components/_controllers";
-import { OutlineInputField } from "components/widgets/inputs";
 import { FilledButton } from "components/widgets/buttons";
+import { OutlineInputField } from "components/widgets/inputs";
+
 import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
 
 import _styles from "./_styles.module.css";

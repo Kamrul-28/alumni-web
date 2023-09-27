@@ -49,26 +49,6 @@ export const CARDS_ITEMS = [
     photo:
       "https://fastly.picsum.photos/id/513/4373/3280.jpg?hmac=LkZSEFr5H-jsaqmKTdANAlVWv6Zb38bDJxz5jQEyU0g",
   },
-  {
-    full_name: "Mrs Asd Chena",
-    designation: "member",
-    phone: "01567753234",
-    email: "karon@gmail.com",
-    facebook: "",
-    linkdin: "lnk",
-    photo:
-      "https://fastly.picsum.photos/id/548/5000/3333.jpg?hmac=BdycqoDMwkZoSovCL9E2F8MAyqdhkHVj8yYkHvkkkVM",
-  },
-  {
-    full_name: "Mrs Fdaf Chena",
-    designation: "member",
-    phone: "01567753234",
-    email: "karon@gmail.com",
-    facebook: "",
-    linkdin: "lnk",
-    photo:
-      "https://fastly.picsum.photos/id/513/4373/3280.jpg?hmac=LkZSEFr5H-jsaqmKTdANAlVWv6Zb38bDJxz5jQEyU0g",
-  },
 ];
 
 export default {

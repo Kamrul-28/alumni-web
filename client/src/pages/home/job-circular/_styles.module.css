@@ -6,25 +6,27 @@
 }
 
 .title {
-    font-size: theme('fontSize.xl');
-    font-weight: theme('fontWeight.semibold');
+    line-height: 1;
+    text-transform: capitalize;
+    font-size: theme('fontSize.xxl');
+    font-weight: theme('fontWeight.bold');
     color: theme('colors.secondary.main');
+}
+
+.description {
+    max-width: 80ch;
+    word-wrap: break-word;
+    font-size: theme('fontSize.md');
+    color: theme('colors.text.secondary');
 }
 
 .card_container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
     gap: theme('gap.card');
 }
 
-
 @media (max-width: theme('screens.md')) {
-    .card_container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: theme('screens.sm')) {
     .card_container {
         grid-template-columns: 1fr 1fr;
     }

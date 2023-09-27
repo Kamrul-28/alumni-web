@@ -1,6 +1,6 @@
 export const STUDENTS = [];
 
-for (let i = 0; i < 40; i++) {
+for (let i = 0; i < 15; i++) {
   STUDENTS.push({
     full_name: "Mr Hm Jhon",
     student_id: "__0227",
