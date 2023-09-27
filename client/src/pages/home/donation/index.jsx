@@ -7,7 +7,7 @@ import { SHARING, STUDYING } from "assets/images";
 import DATA from "./_data_";
 import _styles from "./_styles.module.css";
 
-function Scholarship() {
+function Donation() {
   return (
     <section className={_styles.root}>
       <img src={SHARING} alt="sharing" className={_styles.image} />
@@ -18,7 +18,7 @@ function Scholarship() {
           <OutlinedButton
             endIcon={CursorArrowRippleIcon}
             className={_styles.action_button}>
-            Apply Now
+            Donate
           </OutlinedButton>
         </div>
       </div>
@@ -31,4 +31,4 @@ function Scholarship() {
   );
 }
 
-export default Scholarship;
+export default Donation;

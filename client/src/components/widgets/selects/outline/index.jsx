@@ -11,6 +11,7 @@ const OutlineSelectField = forwardRef((props, ref) => {
     error,
     value,
     required,
+    fullwidth,
     helperText,
     placeholder,
     className,
@@ -18,7 +19,11 @@ const OutlineSelectField = forwardRef((props, ref) => {
   } = props;
 
   return (
-    <div className={clsx(_styles.container, { [_styles.error]: error })}>
+    <div
+      className={clsx(_styles.container, {
+        [_styles.fullwidth]: fullwidth,
+        [_styles.error]: error,
+      })}>
       {label && (
         <label className={_styles.label}>
           {required && <span>*</span>}
@@ -47,8 +52,9 @@ const OutlineSelectField = forwardRef((props, ref) => {
 OutlineSelectField.propTypes = {
   error: PropTypes.bool,
   label: PropTypes.string,
-  className: PropTypes.string,
   required: PropTypes.bool,
+  fullwidth: PropTypes.bool,
+  className: PropTypes.string,
   helperText: PropTypes.string,
   placeholder: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -64,6 +70,7 @@ OutlineSelectField.defaultProps = {
   items: [],
   label: "",
   error: false,
+  fullwidth: true,
   required: false,
   placeholder: "Choose a option",
 };
