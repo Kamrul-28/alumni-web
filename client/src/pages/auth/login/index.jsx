@@ -3,7 +3,10 @@ import { useForm } from "react-hook-form";
 import { FieldController } from "components/_controllers";
 import { OutlineInputField } from "components/widgets/inputs";
 import { FilledButton } from "components/widgets/buttons";
+import { TextButton } from "components/widgets/buttons";
+
 import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
+import { UserPlusIcon } from "@heroicons/react/24/outline";
 
 import _styles from "./_styles.module.css";
 
@@ -56,6 +59,12 @@ function Login() {
         startIcon={ArrowRightOnRectangleIcon}>
         Login
       </FilledButton>
+      <div className={_styles.register_info}>
+        Want to create account?
+        <TextButton color="secondary" startIcon={UserPlusIcon}>
+          Register
+        </TextButton>
+      </div>
     </form>
   );
 }

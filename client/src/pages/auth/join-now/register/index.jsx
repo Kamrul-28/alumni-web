@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 
 import { FieldController } from "components/_controllers";
 import { BaseCheckbox } from "components/widgets/checkboxs";
-import { OutlinedButton } from "components/widgets/buttons";
+import { FilledButton } from "components/widgets/buttons";
 import { OutlineInputField } from "components/widgets/inputs";
 
 import { UserPlusIcon } from "@heroicons/react/24/outline";
@@ -102,12 +102,12 @@ function Register() {
         }}>
         <BaseCheckbox label="I accept the terms and conditions" />
       </FieldController>
-      <OutlinedButton
+      <FilledButton
         type="submit"
         onClick={handleSubmit(onSubmit)}
         startIcon={UserPlusIcon}>
         Register
-      </OutlinedButton>
+      </FilledButton>
     </form>
   );
 }

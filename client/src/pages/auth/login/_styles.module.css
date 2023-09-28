@@ -10,3 +10,9 @@
     color: theme('colors.primary.main');
     font-weight: theme('fontWeight.medium');
 }
+
+.register_info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

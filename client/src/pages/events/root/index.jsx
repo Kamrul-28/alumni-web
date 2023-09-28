@@ -3,13 +3,13 @@ import { useState } from "react";
 import { BasePagination } from "components/widgets/paginations";
 import useNavigation from "hooks/useNavigation";
 
-import { JOB_CIRCULARS } from "./_data_";
+import { CARDS_ITEMS } from "./_data_";
 import _styles from "./_styles.module.css";
 
 import Card from "./card";
 import Header from "./header";
 
-const JobCircularRoot = () => {
+const Events = () => {
   const { query, setPath } = useNavigation();
 
   const [page, setPage] = useState(1);
@@ -23,13 +23,13 @@ const JobCircularRoot = () => {
     <div className={_styles.container}>
       <Header />
       <div className={_styles.card_wraper}>
-        {JOB_CIRCULARS?.map((item, index) => (
+        {CARDS_ITEMS?.map((item, index) => (
           <Card key={index} instance={item} />
         ))}
       </div>
-      <BasePagination count={JOB_CIRCULARS.length} onChange={handlePageChange} />
+      <BasePagination count={CARDS_ITEMS.length} onChange={handlePageChange} />
     </div>
   );
 };
 
-export default JobCircularRoot;
+export default Events;

@@ -7,7 +7,7 @@ import { ArrowRightIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outlin
 import TOP_NAV_ITEMS from "routes/navigations/topbar";
 import { FilledButton, IconButton } from "components/widgets/buttons";
 
-import { KU_LOGO } from "assets/images";
+import { APP_LOGO } from "assets/images";
 import SITE_CONFIG from "data/site.config";
 
 import _styles from "./_styles.module.css";
@@ -27,7 +27,7 @@ function Topbar() {
     <header>
       <nav className={_styles.navbar} aria-label="global">
         <Link to="/">
-          <img className={_styles.logo} src={KU_LOGO} alt={SITE_CONFIG.title} />
+          <img className={_styles.logo} src={APP_LOGO} alt={SITE_CONFIG.title} />
         </Link>
         {/* mobile button*/}
         <IconButton
@@ -65,7 +65,7 @@ function Topbar() {
         className={_styles.mobile_menu_root}>
         <div className={_styles.mobile_menu_header}>
           <Link to="/">
-            <img className={_styles.logo} src={KU_LOGO} alt={SITE_CONFIG.title} />
+            <img className={_styles.logo} src={APP_LOGO} alt={SITE_CONFIG.title} />
           </Link>
           <IconButton
             className={_styles.mobile_menu}

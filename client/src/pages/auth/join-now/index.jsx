@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { KU_LOGO } from "assets/images";
+import { APP_LOGO } from "assets/images";
 import SITE_CONFIG from "data/site.config";
 
 import Login from "./login";
@@ -8,9 +8,9 @@ import _styles from "./_styles.module.css";
 
 function JoinNow() {
   return (
-    <section>
+    <section className={_styles.root}>
       <Link to="/">
-        <img className={_styles.logo} src={KU_LOGO} alt={SITE_CONFIG.title} />
+        <img className={_styles.logo} src={APP_LOGO} alt={SITE_CONFIG.title} />
       </Link>
       <div className={_styles.container}>
         <Login />
