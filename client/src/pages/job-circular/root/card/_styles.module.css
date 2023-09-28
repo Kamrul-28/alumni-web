@@ -31,8 +31,15 @@
     border: 1px solid theme('colors.primary.light');
 }
 
-.header_details {
+.flex_column_gap_5 {
     display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.time_wraper {
+    display: flex;
+    align-items: flex-end;
     flex-direction: column;
     gap: 5px;
 }

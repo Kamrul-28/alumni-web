@@ -1,8 +1,8 @@
-import Root from "pages/job-circular/root";
+import Root from "pages/events/root";
 
 const JOB_CIRCULAR_ROUTE = [
   {
-    path: "/job-circular",
+    path: "/events",
     component: Root,
     is_authenticated: false,
   },

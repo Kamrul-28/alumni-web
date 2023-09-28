@@ -17,3 +17,9 @@
     color: theme('colors.primary.main');
     font-weight: theme('fontWeight.medium');
 }
+
+.login_info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
