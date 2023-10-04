@@ -13,7 +13,6 @@ function useQuery() {
 const useNavigation = () => {
   const query = useQuery();
   const params = useParams();
-
   const navigate = useNavigate();
   const { pathname, hash } = useLocation();
 
@@ -21,6 +20,14 @@ const useNavigation = () => {
   const primary_pathname = pathname?.split("/")[1] || "";
   const secondary_pathname = pathname?.split("/")[2] || "";
   const is_update = secondary_pathname === "update" ? true : false;
+
+  const setQuery = useCallback(
+    (value) => {
+      const query_params = new URLSearchParams(value);
+      navigate({ search: query_params.toString() });
+    },
+    [navigate],
+  );
 
   const setPath = useCallback(
     (path) => {
@@ -44,6 +51,7 @@ const useNavigation = () => {
     hash_param: hash_param,
     setPath: setPath,
     backPath: backPath,
+    setQuery: setQuery,
   };
 };
 

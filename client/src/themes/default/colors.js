@@ -29,11 +29,12 @@ export default {
     dark: "#8e233c",
   },
   background: {
-    default: "#ffffff",
-    paper: "#F9F9F9",
+    white: "#ffffff",
+    default: "#fafbfc",
+    primary: "#fafbfc",
   },
   text: {
-    primary: "#888",
+    primary: "#888888",
     secondary: "#595B5C",
   },
 };

@@ -22,67 +22,23 @@
 
 .card_container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 30px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: theme('gap.card');
 }
-
-.card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.09);
-    padding: theme('padding.card');
-}
-
-.card_image {
-    border-radius: 100%;
-    width: 13rem;
-    height: 13rem;
-    object-fit: cover;
-}
-
-.card_content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.card_content h2 {
-    font-size: theme('fontSize.lg');
-    font-weight: theme('fontWeight.medium')
-}
-
-.card_content p {
-    font-size: theme('fontSize.base');
-    text-transform: capitalize;
-}
-
-.card_contacts {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.card_actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.social_icon {
-    font-size: theme('fontSize.lg');
-}
-
 
 @media (max-width: theme('screens.lg')) {
     .card_container {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
 @media (max-width: theme('screens.md')) {
+    .card_container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: theme('screens.sm')) {
     .card_container {
         grid-template-columns: 1fr 1fr;
     }

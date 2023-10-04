@@ -6,6 +6,10 @@
     color: theme('colors.primary.main');
 }
 
+.small {
+    font-size: theme('fontSize.base');
+}
+
 .button:hover {
     background-color: theme('colors.primary.light');
 }

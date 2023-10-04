@@ -9,6 +9,7 @@ const OutlineInputField = forwardRef((props, ref) => {
     label,
     error,
     value,
+    fullwidth,
     required,
     helperText,
     placeholder,
@@ -17,7 +18,11 @@ const OutlineInputField = forwardRef((props, ref) => {
   } = props;
 
   return (
-    <div className={clsx(_styles.container, { [_styles.error]: error })}>
+    <div
+      className={clsx(_styles.container, {
+        [_styles.fullwidth]: fullwidth,
+        [_styles.error]: error,
+      })}>
       {label && (
         <label className={_styles.label}>
           {required && <span>*</span>}
@@ -38,6 +43,7 @@ const OutlineInputField = forwardRef((props, ref) => {
 
 OutlineInputField.propTypes = {
   error: PropTypes.bool,
+  fullwidth: PropTypes.bool,
   required: PropTypes.bool,
   label: PropTypes.string,
   helperText: PropTypes.string,
@@ -50,6 +56,7 @@ OutlineInputField.defaultProps = {
   label: "",
   error: false,
   required: false,
+  fullwidth: true,
   placeholder: "Please enter",
 };
 export default OutlineInputField;

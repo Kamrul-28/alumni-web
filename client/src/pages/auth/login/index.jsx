@@ -2,7 +2,11 @@ import { useForm } from "react-hook-form";
 
 import { FieldController } from "components/_controllers";
 import { OutlineInputField } from "components/widgets/inputs";
-import { OutlinedButton } from "components/widgets/buttons";
+import { FilledButton } from "components/widgets/buttons";
+import { TextButton } from "components/widgets/buttons";
+
+import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
+import { UserPlusIcon } from "@heroicons/react/24/outline";
 
 import _styles from "./_styles.module.css";
 
@@ -49,9 +53,18 @@ function Login() {
         }}>
         <OutlineInputField label="Passowrd" type="password" />
       </FieldController>
-      <OutlinedButton type="submit" onClick={handleSubmit(onSubmit)}>
+      <FilledButton
+        type="submit"
+        onClick={handleSubmit(onSubmit)}
+        startIcon={ArrowRightOnRectangleIcon}>
         Login
-      </OutlinedButton>
+      </FilledButton>
+      <div className={_styles.register_info}>
+        Want to create account?
+        <TextButton color="secondary" startIcon={UserPlusIcon}>
+          Register
+        </TextButton>
+      </div>
     </form>
   );
 }

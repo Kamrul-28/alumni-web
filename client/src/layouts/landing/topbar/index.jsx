@@ -7,7 +7,7 @@ import { ArrowRightIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outlin
 import TOP_NAV_ITEMS from "routes/navigations/topbar";
 import { FilledButton, IconButton } from "components/widgets/buttons";
 
-import { KU_LOGO } from "assets/images";
+import { APP_LOGO } from "assets/images";
 import SITE_CONFIG from "data/site.config";
 
 import _styles from "./_styles.module.css";
@@ -27,7 +27,7 @@ function Topbar() {
     <header>
       <nav className={_styles.navbar} aria-label="global">
         <Link to="/">
-          <img className={_styles.logo} src={KU_LOGO} alt={SITE_CONFIG.title} />
+          <img className={_styles.logo} src={APP_LOGO} alt={SITE_CONFIG.title} />
         </Link>
         {/* mobile button*/}
         <IconButton
@@ -52,7 +52,7 @@ function Topbar() {
           ))}
         </div>
         <div className={_styles.nav_actions}>
-          <Link to="/login">
+          <Link to="/join-now">
             <FilledButton endIcon={ArrowRightIcon}>Join Now</FilledButton>
           </Link>
         </div>
@@ -60,12 +60,12 @@ function Topbar() {
       {/* mobile */}
       <Dialog
         as="aside"
-        className={_styles.mobile_menu_container}
         open={openMobileMenu}
-        onClose={setOpenMobileMenu}>
+        onClose={setOpenMobileMenu}
+        className={_styles.mobile_menu_root}>
         <div className={_styles.mobile_menu_header}>
           <Link to="/">
-            <img className={_styles.logo} src={KU_LOGO} alt={SITE_CONFIG.title} />
+            <img className={_styles.logo} src={APP_LOGO} alt={SITE_CONFIG.title} />
           </Link>
           <IconButton
             className={_styles.mobile_menu}
@@ -73,29 +73,31 @@ function Topbar() {
             icon={XMarkIcon}
           />
         </div>
-        <div className={_styles.mobile_menu_items}>
-          {TOP_NAV_ITEMS?.map((item, index) => (
-            <Fragment key={index}>
-              {item?.nested ? (
-                <Link to={item.path} key={item.title} className={_styles.nav_link}>
-                  {item.title}
-                </Link>
-              ) : (
-                <Link to={item.path} key={item.title} className={_styles.nav_link}>
-                  {item.title}
-                </Link>
-              )}
-            </Fragment>
-          ))}
-        </div>
-        <div className={_styles.mobile_menu_items}>
-          <Link to="/login">
-            <FilledButton
-              endIcon={ArrowRightIcon}
-              className={_styles.button_nav_link}>
-              Join Now
-            </FilledButton>
-          </Link>
+        <div className={_styles.mobile_menu_container}>
+          <div className={_styles.mobile_menu_items}>
+            {TOP_NAV_ITEMS?.map((item, index) => (
+              <Fragment key={index}>
+                {item?.nested ? (
+                  <Link to={item.path} key={item.title} className={_styles.nav_link}>
+                    {item.title}
+                  </Link>
+                ) : (
+                  <Link to={item.path} key={item.title} className={_styles.nav_link}>
+                    {item.title}
+                  </Link>
+                )}
+              </Fragment>
+            ))}
+          </div>
+          <div className={_styles.mobile_menu_items}>
+            <Link to="/login">
+              <FilledButton
+                endIcon={ArrowRightIcon}
+                className={_styles.button_nav_link}>
+                Join Now
+              </FilledButton>
+            </Link>
+          </div>
         </div>
       </Dialog>
     </header>

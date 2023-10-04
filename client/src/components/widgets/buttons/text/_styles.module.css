@@ -8,6 +8,10 @@
     color: 'inherit';
 }
 
+.small {
+    font-size: theme('fontSize.base');
+}
+
 .button:hover {
     color: theme('colors.secondary.main');
 }

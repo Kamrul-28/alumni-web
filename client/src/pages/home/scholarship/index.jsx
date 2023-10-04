@@ -7,7 +7,7 @@ import { SHARING, STUDYING } from "assets/images";
 import DATA from "./_data_";
 import _styles from "./_styles.module.css";
 
-function Committee() {
+function Scholarship() {
   return (
     <section className={_styles.root}>
       <img src={SHARING} alt="sharing" className={_styles.image} />
@@ -31,4 +31,4 @@ function Committee() {
   );
 }
 
-export default Committee;
+export default Scholarship;

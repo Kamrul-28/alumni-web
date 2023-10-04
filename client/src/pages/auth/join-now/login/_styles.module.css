@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title {
+    line-height: 1;
+    font-size: theme('fontSize.lg');
+    color: theme('colors.secondary.main');
+    font-weight: theme('fontWeight.medium');
+}

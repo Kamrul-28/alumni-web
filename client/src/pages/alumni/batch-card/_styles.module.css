@@ -1,0 +1,22 @@
+.card {
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.09);
+    padding: theme('padding.card');
+    color: theme('colors.primary.main');
+    background-color: theme('colors.common.white');
+}
+
+.card:hover {
+    color: theme('colors.secondary.main');
+}
+
+.full_year {
+    font-size: theme('fontSize.lg');
+    font-weight: theme('fontWeight.semibold');
+}
+
+.short_year {
+    font-size: theme('fontSize.md');
+    font-weight: theme('fontWeight.medium');
+}
