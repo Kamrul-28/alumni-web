@@ -57,6 +57,11 @@ const Form = ({ instance, isUpdate }) => {
             <OutlineInputField label="Title" />
           </FieldController>
         </div>
+        <div className={_styles.form_inner_container}>
+          <FieldController name="logo_url" control={control}>
+            <OutlineInputField label="Upload Logo" type="file" />
+          </FieldController>
+        </div>
         <FieldController
           name="description"
           control={control}
