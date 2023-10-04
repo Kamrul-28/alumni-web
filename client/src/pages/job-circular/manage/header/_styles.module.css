@@ -15,7 +15,13 @@
 }
 
 .status {
-    font-weight:theme('fontWeight.semibold');
+    font-weight: theme('fontWeight.semibold');
     color: theme("colors.primary.main");
+}
 
+.icon_wraper {
+    color: theme("colors.text.primary");
+    height: 50px;
+    display: flex;
+    align-items: center;
 }

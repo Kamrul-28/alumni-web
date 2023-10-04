@@ -5,7 +5,6 @@ import { AngleRightIcon } from "assets/icons";
 
 import useNavigation from "hooks/useNavigation";
 
-import theme from "themes/default";
 import _styles from "./_styles.module.css";
 
 const Header = ({ title, status }) => {
@@ -20,7 +19,9 @@ const Header = ({ title, status }) => {
       <button className={_styles.title} onClick={handleClick}>
         {title}
       </button>
-      <AngleRightIcon color={theme.colors.text.primary} />
+      <div className={_styles.icon_wraper}>
+        <AngleRightIcon />
+      </div>
       <p className={_styles.status}>{status}</p>
     </div>
   );

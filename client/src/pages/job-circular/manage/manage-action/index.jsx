@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 
 import { CheckIcon, CloseIcon } from "assets/icons";
+
 import { FilledButton, OutlinedButton } from "components/widgets/buttons";
 
 import _styles from "./_styles.module.css";
