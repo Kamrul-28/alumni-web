@@ -1,0 +1,4 @@
+.container {
+    padding: theme('padding.container');
+    background: theme("colors.background.paper");
+}
