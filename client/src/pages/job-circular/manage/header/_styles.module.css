@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap:10px;
+    font-size: large;
+    margin-bottom: 40px;
+}
+
+.title {
+    color: theme("colors.text.primary");
+}
+
+.title:hover{
+    color: theme("colors.secondary.main");
+}
+
+.status {
+    font-weight: theme('fontWeight.semibold');
+    color: theme("colors.primary.main");
+}
+
+.icon_wraper {
+    color: theme("colors.text.primary");
+    height: 50px;
+    display: flex;
+    align-items: center;
+}

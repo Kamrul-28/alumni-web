@@ -3,6 +3,7 @@ export const JOB_CIRCULARS = [
     title: "Mid-Level Position",
     type: "Remote",
     salary: "$4000-$5000",
+    applicant: "13",
     keywords: "javascript, node, react",
     logo_url:
       "https://fastly.picsum.photos/id/513/4373/3280.jpg?hmac=LkZSEFr5H-jsaqmKTdANAlVWv6Zb38bDJxz5jQEyU0g",
@@ -13,6 +14,7 @@ export const JOB_CIRCULARS = [
     title: "Mid-Level Position",
     type: "Remote",
     salary: "$4000-$5000",
+    applicant: "0",
     keywords: "javascript, node, react",
     logo_url: null,
     description:
@@ -31,6 +33,7 @@ export const JOB_CIRCULARS = [
     title: "Senior Position",
     type: "Remote",
     salary: "$4000-$5000",
+    applicant: "5",
     keywords: "javascript, node, react",
     logo_url:
       "https://fastly.picsum.photos/id/513/4373/3280.jpg?hmac=LkZSEFr5H-jsaqmKTdANAlVWv6Zb38bDJxz5jQEyU0g",

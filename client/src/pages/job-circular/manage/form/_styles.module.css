@@ -1,0 +1,22 @@
+.container {
+    background-color: theme("colors.background.default");
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+}
+
+.form_container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form_inner_container {
+    width: 60%;
+}
+
+.row_wraper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
