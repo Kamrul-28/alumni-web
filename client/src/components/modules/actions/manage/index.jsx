@@ -1,12 +1,14 @@
 import PropTypes from "prop-types";
 
-import { CheckIcon, CloseIcon } from "assets/icons";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { CheckIcon } from "@heroicons/react/24/outline";
 
 import { FilledButton, OutlinedButton } from "components/widgets/buttons";
 
 import _styles from "./_styles.module.css";
 
-const ManageAction = ({ onSubmit, onCancel, isUpdate, submitText, disabled }) => {
+const ManageAction = (props) => {
+  const { onSubmit, onCancel, isUpdate, submitText, disabled } = props;
   return (
     <div className={_styles.action_container}>
       <FilledButton
@@ -17,7 +19,7 @@ const ManageAction = ({ onSubmit, onCancel, isUpdate, submitText, disabled }) =>
         disabled={disabled}>
         {isUpdate ? "Update" : submitText}
       </FilledButton>
-      <OutlinedButton color="primary" startIcon={CloseIcon} onClick={onCancel}>
+      <OutlinedButton color="primary" startIcon={XMarkIcon} onClick={onCancel}>
         Cancel
       </OutlinedButton>
     </div>
@@ -28,8 +30,8 @@ ManageAction.propTypes = {
   onSubmit: PropTypes.func,
   onCancel: PropTypes.func,
   isUpdate: PropTypes.bool,
-  submitText: PropTypes.string,
   disabled: PropTypes.bool,
+  submitText: PropTypes.string,
 };
 ManageAction.defaultProps = {
   submitText: "Save",

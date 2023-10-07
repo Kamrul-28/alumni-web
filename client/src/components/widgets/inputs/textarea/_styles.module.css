@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    color: theme('colors.primary.main');
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+.error {
+    color: theme('colors.error.main');
+}
+
+.label {
+    font-size: theme('fontSize.md');
+}
+
+.helper_message {
+    font-size: theme('fontSize.sm');
+    color: theme('colors.text.secondary');
+}
+
+.input_field {
+    padding: 8px 16px;
+    border-radius: 5px;
+    outline: none;
+    font-size: theme('fontSize.md');
+    color: theme('colors.text.secondary');
+    border: 1px solid theme('colors.primary.main');
+}
+
+.input_field::placeholder {
+    font-size: theme('fontSize.base');
+}

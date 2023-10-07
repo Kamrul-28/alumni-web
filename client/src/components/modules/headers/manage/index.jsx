@@ -1,13 +1,14 @@
 import { useCallback } from "react";
 import PropTypes from "prop-types";
 
-import { AngleRightIcon } from "assets/icons";
+import { TextButton } from "components/widgets/buttons";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
 import useNavigation from "hooks/useNavigation";
 
 import _styles from "./_styles.module.css";
 
-const Header = ({ title, status }) => {
+const Manage = ({ title, status }) => {
   const { primary_pathname, setPath } = useNavigation();
 
   const handleClick = useCallback(() => {
@@ -16,25 +17,25 @@ const Header = ({ title, status }) => {
 
   return (
     <div className={_styles.container}>
-      <button className={_styles.title} onClick={handleClick}>
+      <TextButton
+        className={_styles.title}
+        endIcon={ChevronRightIcon}
+        onClick={handleClick}>
         {title}
-      </button>
-      <div className={_styles.icon_wraper}>
-        <AngleRightIcon />
-      </div>
+      </TextButton>
       <p className={_styles.status}>{status}</p>
     </div>
   );
 };
 
-Header.propTypes = {
+Manage.propTypes = {
   title: PropTypes.string,
   status: PropTypes.string,
 };
 
-Header.defaultProps = {
+Manage.defaultProps = {
   title: "",
   status: "",
 };
 
-export default Header;
+export default Manage;
