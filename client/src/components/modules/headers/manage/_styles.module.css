@@ -1,16 +1,14 @@
 .container {
     display: flex;
     align-items: center;
-    gap:10px;
-    font-size: large;
-    margin-bottom: 40px;
+    gap: 10px;
 }
 
 .title {
     color: theme("colors.text.primary");
 }
 
-.title:hover{
+.title:hover {
     color: theme("colors.secondary.main");
 }
 
@@ -20,8 +18,7 @@
 }
 
 .icon_wraper {
-    color: theme("colors.text.primary");
-    height: 50px;
     display: flex;
     align-items: center;
+    color: theme("colors.text.primary");
 }

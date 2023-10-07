@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 
 import { FieldController } from "components/_controllers";
+import { ManageAction } from "components/modules/actions";
 import { OutlineInputField } from "components/widgets/inputs";
 import { OutlineSelectField } from "components/widgets/selects";
+import { TextAreaInputField } from "components/widgets/inputs";
+import { UploaderInputField } from "components/widgets/inputs";
 
 import useNavigation from "hooks/useNavigation";
 import { STATUS, TYPE } from "data/job-circular";
-
-import ManageAction from "../manage-action";
 
 import _styles from "./_styles.module.css";
 
@@ -22,7 +23,7 @@ const Form = ({ instance, isUpdate }) => {
     salary: instance?.salary || "",
     status: instance?.status || "",
     keywords: instance?.keywords || "",
-    logo_url: instance?.logo_url || "",
+    img_url: instance?.img_url || "",
     applicant: instance?.applicant || "",
     description: instance?.description || "",
   };
@@ -44,7 +45,7 @@ const Form = ({ instance, isUpdate }) => {
   return (
     <div className={_styles.container}>
       <form className={_styles.form_container}>
-        <div className={_styles.form_inner_container}>
+        <div className={_styles.row_wraper}>
           <FieldController
             name="title"
             control={control}
@@ -56,23 +57,10 @@ const Form = ({ instance, isUpdate }) => {
             }}>
             <OutlineInputField label="Title" />
           </FieldController>
-        </div>
-        <div className={_styles.form_inner_container}>
-          <FieldController name="logo_url" control={control}>
-            <OutlineInputField label="Upload Logo" type="file" />
+          <FieldController name="keywords" control={control}>
+            <OutlineInputField label="Keyword" />
           </FieldController>
         </div>
-        <FieldController
-          name="description"
-          control={control}
-          rules={{
-            required: {
-              value: true,
-              message: "Please provide description",
-            },
-          }}>
-          <OutlineInputField label="Description" />
-        </FieldController>
         <div className={_styles.row_wraper}>
           <FieldController
             name="type"
@@ -109,10 +97,21 @@ const Form = ({ instance, isUpdate }) => {
             }}>
             <OutlineInputField label="Salary" />
           </FieldController>
-          <FieldController name="keywords" control={control}>
-            <OutlineInputField label="Keyword" />
+          <FieldController name="img_url" control={control}>
+            <UploaderInputField label="Upload Image" />
           </FieldController>
         </div>
+        <FieldController
+          name="description"
+          control={control}
+          rules={{
+            required: {
+              value: true,
+              message: "Please provide description",
+            },
+          }}>
+          <TextAreaInputField label="Description" />
+        </FieldController>
         <ManageAction
           onSubmit={handleSubmit(onSubmit)}
           onCancel={handleCancel}
