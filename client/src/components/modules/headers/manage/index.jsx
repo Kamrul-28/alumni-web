@@ -8,7 +8,7 @@ import useNavigation from "hooks/useNavigation";
 
 import _styles from "./_styles.module.css";
 
-const Manage = ({ title, status }) => {
+const ManageHeader = ({ title, status }) => {
   const { primary_pathname, setPath } = useNavigation();
 
   const handleClick = useCallback(() => {
@@ -23,19 +23,19 @@ const Manage = ({ title, status }) => {
         onClick={handleClick}>
         {title}
       </TextButton>
-      <p className={_styles.status}>{status}</p>
+      <h2 className={_styles.status}>{status}</h2>
     </div>
   );
 };
 
-Manage.propTypes = {
+ManageHeader.propTypes = {
   title: PropTypes.string,
   status: PropTypes.string,
 };
 
-Manage.defaultProps = {
+ManageHeader.defaultProps = {
   title: "",
   status: "",
 };
 
-export default Manage;
+export default ManageHeader;

@@ -14,6 +14,7 @@ function Register() {
     first_name: "",
     last_name: "",
     email: "",
+    student_id: "",
     mobile: "",
     password: "",
     confirm_password: "",
@@ -48,7 +49,7 @@ function Register() {
         </FieldController>
       </div>
       <div className={_styles.flex_row}>
-        <FieldController
+        {/* <FieldController
           name="email"
           control={control}
           rules={{
@@ -62,6 +63,17 @@ function Register() {
             },
           }}>
           <OutlineInputField label="Email" type="email" />
+        </FieldController> */}
+        <FieldController
+          name="student_id"
+          control={control}
+          rules={{
+            required: {
+              value: true,
+              message: "Please provide student_id",
+            },
+          }}>
+          <OutlineInputField label="Student Id" />
         </FieldController>
         <FieldController name="mobile" control={control}>
           <OutlineInputField label="Mobile" type="mobile" />

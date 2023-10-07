@@ -1,0 +1,25 @@
+.container {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.09);
+    padding: theme('padding.container');
+    background-color: theme('colors.common.white');
+}
+
+.form_container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.row_wraper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: theme('screens.md')) {
+    .row_wraper {
+        grid-template-columns: 1fr;
+    }
+}
