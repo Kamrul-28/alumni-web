@@ -30,6 +30,20 @@
     border: 1px solid theme('colors.primary.main');
 }
 
+.input_field::file-selector-button {
+    border-radius: 5px;
+    border: none;
+    color: theme('colors.primary.main');
+    background-color: theme('colors.primary.light');
+    margin-right: 10px;
+}
+
+.input_field::file-selector-button:hover {
+    color: theme('colors.secondary.main');
+    background-color: theme('colors.secondary.light');
+}
+
+
 .input_field::placeholder {
     font-size: theme('fontSize.base');
 }

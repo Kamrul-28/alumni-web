@@ -5,11 +5,9 @@ import { useForm } from "react-hook-form";
 import { FieldController } from "components/_controllers";
 import { ManageAction } from "components/modules/actions";
 import { OutlineInputField } from "components/widgets/inputs";
-import { OutlineSelectField } from "components/widgets/selects";
 import { TextAreaInputField } from "components/widgets/inputs";
 
 import useNavigation from "hooks/useNavigation";
-import { STATUS, TYPE } from "data/job-circular";
 
 import _styles from "./_styles.module.css";
 
@@ -17,10 +15,8 @@ const Form = ({ instance, isUpdate }) => {
   const { backPath } = useNavigation();
 
   const defaultValues = {
-    type: instance?.type || "",
     title: instance?.title || "",
-    salary: instance?.salary || "",
-    status: instance?.status || "",
+    date: instance?.date || "",
     keywords: instance?.keywords || "",
     img_url: instance?.img_url || "",
     applicant: instance?.applicant || "",
@@ -62,39 +58,15 @@ const Form = ({ instance, isUpdate }) => {
         </div>
         <div className={_styles.row_wraper}>
           <FieldController
-            name="type"
+            name="date"
             control={control}
             rules={{
               required: {
                 value: true,
-                message: "Please provide type",
+                message: "Please provide date",
               },
             }}>
-            <OutlineSelectField items={TYPE} label="Type" />
-          </FieldController>
-          <FieldController
-            name="status"
-            control={control}
-            rules={{
-              required: {
-                value: true,
-                message: "Please provide status",
-              },
-            }}>
-            <OutlineSelectField items={STATUS} label="Status" />
-          </FieldController>
-        </div>
-        <div className={_styles.row_wraper}>
-          <FieldController
-            name="salary"
-            control={control}
-            rules={{
-              required: {
-                value: true,
-                message: "Please provide salary",
-              },
-            }}>
-            <OutlineInputField label="Salary" />
+            <OutlineInputField label="Date" type="date" />
           </FieldController>
           <FieldController name="img_url" control={control}>
             <OutlineInputField label="Upload Image" type="file" />
