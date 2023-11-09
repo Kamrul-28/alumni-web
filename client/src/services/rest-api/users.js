@@ -18,7 +18,7 @@ export const userDetails = (userId, params = {}) =>
 export const createUser = (data) =>
   apiRequest({
     method: "post",
-    // url: ENDPOINTS.USERS,
+    url: ENDPOINTS.USERS,
     data: data,
   });
 

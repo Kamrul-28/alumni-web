@@ -4,6 +4,9 @@ import Routes from "routes";
 import StateProvider from "store/provider";
 import QueryProvider from "services/query-provider";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // ReactGA.initialize(process.env.import.meta.env.VITE_GOOGLE_ANLYTICS_TRAKING_ID);
 
 function App() {
@@ -11,6 +14,7 @@ function App() {
     <QueryProvider>
       <StateProvider>
         <Routes />
+        <ToastContainer theme="colored" hideProgressBar={true} />
       </StateProvider>
     </QueryProvider>
   );

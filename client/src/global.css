@@ -4,12 +4,18 @@
 
 
 :root {
+  --toastify-toast-width: 300px;
+  --toastify-toast-min-height: 50px;
+  --toastify-toast-max-height: 100px;
+
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;
   --font-mono: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
 }
+
+
 
 
 /* @media (prefers-color-scheme: dark) {
