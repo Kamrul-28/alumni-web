@@ -4,26 +4,30 @@ import { FieldController } from "components/_controllers";
 import { BaseCheckbox } from "components/widgets/checkboxs";
 import { FilledButton } from "components/widgets/buttons";
 import { OutlineInputField } from "components/widgets/inputs";
+import { OutlineSelectField } from "components/widgets/selects";
 
 import { UserPlusIcon } from "@heroicons/react/24/outline";
 
+import { BLOOD_GROUPS } from "./_data";
 import _styles from "./_styles.module.css";
 
 function Register() {
   const defaultValues = {
-    first_name: "",
-    last_name: "",
-    email: "",
-    student_id: "",
-    mobile: "",
+    roll: "",
     password: "",
-    confirm_password: "",
-    is_agree: false,
+    confirmPassword: "",
+    firstname: "",
+    lastName: "",
+    phoneNumber: "",
+    bloodGroup: "",
+    disciplineId: 2,
+    isAgree: true,
   };
 
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit, watch } = useForm({
     defaultValues: defaultValues,
   });
+  const password = watch("password");
 
   const onSubmit = (data) => {
     console.log(data);
@@ -32,9 +36,9 @@ function Register() {
   return (
     <form className={_styles.container}>
       <h2 className={_styles.title}>Register</h2>
-      <div className={_styles.flex_row}>
+      <div className={_styles.form_row}>
         <FieldController
-          name="first_name"
+          name="firstname"
           control={control}
           rules={{
             required: {
@@ -44,42 +48,35 @@ function Register() {
           }}>
           <OutlineInputField label="First Name" />
         </FieldController>
-        <FieldController name="last_name" control={control}>
+        <FieldController name="lastName" control={control}>
           <OutlineInputField label="Last Name" />
         </FieldController>
       </div>
-      <div className={_styles.flex_row}>
-        {/* <FieldController
-          name="email"
-          control={control}
-          rules={{
-            required: {
-              value: true,
-              message: "Please provide email",
-            },
-            pattern: {
-              value: /\S+@\S+\.\S+/,
-              message: "Invalid email",
-            },
-          }}>
-          <OutlineInputField label="Email" type="email" />
-        </FieldController> */}
+      <div className={_styles.form_row}>
         <FieldController
-          name="student_id"
+          name="phoneNumber"
           control={control}
           rules={{
             required: {
               value: true,
-              message: "Please provide student_id",
+              message: "Please provide mobile number",
             },
           }}>
-          <OutlineInputField label="Student Id" />
+          <OutlineInputField label="Mobile" type="tel" />
         </FieldController>
-        <FieldController name="mobile" control={control}>
-          <OutlineInputField label="Mobile" type="mobile" />
+        <FieldController
+          name="bloodGroup"
+          control={control}
+          rules={{
+            required: {
+              value: true,
+              message: "Please provide blood group",
+            },
+          }}>
+          <OutlineSelectField label="Blood Group" items={BLOOD_GROUPS} />
         </FieldController>
       </div>
-      <div className={_styles.flex_row}>
+      <div className={_styles.form_row}>
         <FieldController
           name="password"
           control={control}
@@ -92,15 +89,17 @@ function Register() {
           <OutlineInputField label="Passowrd" type="password" />
         </FieldController>
         <FieldController
-          name="confirm_password"
+          name="confirmPassword"
           control={control}
           rules={{
             required: {
               value: true,
               message: "Please provide confirm password",
             },
+            validate: (value) =>
+              !Boolean(value) || value === password || "Password Mismatch",
           }}>
-          <OutlineInputField label="Confirm Passowrd" type="confirm_password" />
+          <OutlineInputField label="Confirm Passowrd" type="password" />
         </FieldController>
       </div>
       <FieldController

@@ -36,7 +36,14 @@ const OutlineInputField = forwardRef((props, ref) => {
         className={clsx(_styles.input_field, className)}
         {...others}
       />
-      {helperText && <span className={_styles.helper_message}>{helperText}</span>}
+      {helperText && (
+        <span
+          className={clsx(_styles.helper_message, {
+            [_styles.error]: error,
+          })}>
+          {helperText}
+        </span>
+      )}
     </div>
   );
 });

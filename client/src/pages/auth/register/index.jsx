@@ -1,4 +1,6 @@
+import clsx from "clsx";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 
@@ -7,6 +9,7 @@ import { TextButton } from "components/widgets/buttons";
 import { FilledButton } from "components/widgets/buttons";
 import { BaseCheckbox } from "components/widgets/checkboxs";
 import { OutlineInputField } from "components/widgets/inputs";
+import { OutlineSelectField } from "components/widgets/selects";
 
 import { ApiResponseLoader } from "components/modules/loaders";
 
@@ -15,23 +18,34 @@ import { UserPlusIcon } from "@heroicons/react/24/outline";
 
 import { createUser } from "services/rest-api/users";
 // import { handleFormError } from "services/error-handling";
+import { QUEUE } from "assets/images";
 
+import { BLOOD_GROUPS } from "./_data";
 import _styles from "./_styles.module.css";
 
 function Register() {
   const defaultValues = {
-    first_name: "",
-    last_name: "",
-    email: "",
+    roll: "",
     password: "",
-    confirm_password: "",
-    mobile: "",
-    is_agree: true,
+    confirmPassword: "",
+    firstname: "",
+    lastName: "",
+    nickName: "",
+    email: "",
+    phoneNumber: "",
+    profession: "",
+    designation: "",
+    bloodGroup: "",
+    dob: "",
+    disciplineId: 2,
+    isAgree: true,
   };
 
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit, watch } = useForm({
     defaultValues: defaultValues,
   });
+
+  const password = watch("password");
 
   const { isPending, mutate } = useMutation({
     mutationFn: createUser,
@@ -48,95 +62,159 @@ function Register() {
   if (isPending) return ApiResponseLoader;
 
   return (
-    <form className={_styles.container}>
-      <h2 className={_styles.title}>Register</h2>
-      <div className={_styles.flex_row}>
+    <div className={_styles.container}>
+      <div className={_styles.column}>
+        <img
+          src={QUEUE}
+          alt="studying"
+          className={clsx(_styles.image, _styles.mobile)}
+        />
+        <div className={_styles.title_wrapper}>
+          <h2 className={_styles.title}>Register</h2>
+          <p>
+            Joining the alumni register ensures you stay informed about networking
+            events and career advancements within your alumni network.
+          </p>
+        </div>
+        <div className={_styles.login_info}>
+          Already have an account?
+          <Link to="/login">
+            <TextButton
+              color="secondary"
+              startIcon={ArrowRightOnRectangleIcon}
+              onClick={onSubmit}>
+              Log in
+            </TextButton>
+          </Link>
+        </div>
+      </div>
+      <form className={_styles.form}>
+        <h2 className={_styles.title}>Create Your Account</h2>
+        <div className={_styles.form_row}>
+          <FieldController
+            name="firstname"
+            control={control}
+            rules={{
+              required: {
+                value: true,
+                message: "Please provide first name",
+              },
+            }}>
+            <OutlineInputField label="First Name" />
+          </FieldController>
+          <FieldController name="lastName" control={control}>
+            <OutlineInputField label="Last Name" />
+          </FieldController>
+        </div>
+        <div className={_styles.form_row}>
+          <FieldController
+            name="roll"
+            control={control}
+            rules={{
+              required: {
+                value: true,
+                message: "Please provide student id",
+              },
+            }}>
+            <OutlineInputField label="Student Id" />
+          </FieldController>
+          <FieldController name="nickName" control={control}>
+            <OutlineInputField label="Nick Name" />
+          </FieldController>
+        </div>
+        <div className={_styles.form_row}>
+          <FieldController
+            name="phoneNumber"
+            control={control}
+            rules={{
+              required: {
+                value: true,
+                message: "Please provide mobile number",
+              },
+            }}>
+            <OutlineInputField label="Mobile" type="tel" />
+          </FieldController>
+          <FieldController
+            name="email"
+            control={control}
+            rules={{
+              pattern: {
+                value: /\S+@\S+\.\S+/,
+                message: "Invalid email",
+              },
+            }}>
+            <OutlineInputField label="Email" type="email" />
+          </FieldController>
+        </div>
+        <div className={_styles.form_row}>
+          <FieldController
+            name="bloodGroup"
+            control={control}
+            rules={{
+              required: {
+                value: true,
+                message: "Please provide blood group",
+              },
+            }}>
+            <OutlineSelectField label="Blood Group" items={BLOOD_GROUPS} />
+          </FieldController>
+          <FieldController name="dob" control={control}>
+            <OutlineInputField label="Date Of Birth" type="date" />
+          </FieldController>
+        </div>
+        <div className={_styles.form_row}>
+          <FieldController name="profession" control={control}>
+            <OutlineInputField label="Profession" />
+          </FieldController>
+          <FieldController name="designation" control={control}>
+            <OutlineInputField label="Designation" />
+          </FieldController>
+        </div>
+        <div className={_styles.form_row}>
+          <FieldController
+            name="password"
+            control={control}
+            rules={{
+              required: {
+                value: true,
+                message: "Please provide password",
+              },
+            }}>
+            <OutlineInputField label="Passowrd" type="password" />
+          </FieldController>
+          <FieldController
+            name="confirmPassword"
+            control={control}
+            rules={{
+              required: {
+                value: true,
+                message: "Please provide confirm password",
+              },
+              validate: (value) =>
+                !Boolean(value) || value === password || "Password mismatch",
+            }}>
+            <OutlineInputField label="Confirm Passowrd" type="password" />
+          </FieldController>
+        </div>
         <FieldController
-          name="first_name"
+          name="isAgree"
           control={control}
           rules={{
             required: {
               value: true,
-              message: "Please provide first name",
+              message: "Please provide concent",
             },
           }}>
-          <OutlineInputField label="First Name" />
+          <BaseCheckbox label="I accept the terms and conditions" />
         </FieldController>
-        <FieldController name="last_name" control={control}>
-          <OutlineInputField label="Last Name" />
-        </FieldController>
-      </div>
-      <div className={_styles.flex_row}>
-        <FieldController
-          name="email"
-          control={control}
-          rules={{
-            required: {
-              value: true,
-              message: "Please provide email",
-            },
-            pattern: {
-              value: /\S+@\S+\.\S+/,
-              message: "Invalid email",
-            },
-          }}>
-          <OutlineInputField label="Email" type="email" />
-        </FieldController>
-        <FieldController name="mobile" control={control}>
-          <OutlineInputField label="Mobile" type="mobile" />
-        </FieldController>
-      </div>
-      <div className={_styles.flex_row}>
-        <FieldController
-          name="password"
-          control={control}
-          rules={{
-            required: {
-              value: true,
-              message: "Please provide password",
-            },
-          }}>
-          <OutlineInputField label="Passowrd" type="password" />
-        </FieldController>
-        <FieldController
-          name="confirm_password"
-          control={control}
-          rules={{
-            required: {
-              value: true,
-              message: "Please provide confirm password",
-            },
-          }}>
-          <OutlineInputField label="Confirm Passowrd" type="confirm_password" />
-        </FieldController>
-      </div>
-      <FieldController
-        name="is_agree"
-        control={control}
-        rules={{
-          required: {
-            value: true,
-            message: "Please provide concent",
-          },
-        }}>
-        <BaseCheckbox label="I accept the terms and conditions" />
-      </FieldController>
-      <FilledButton
-        type="submit"
-        onClick={handleSubmit(onSubmit)}
-        startIcon={UserPlusIcon}>
-        Register
-      </FilledButton>
-      <div className={_styles.login_info}>
-        Already have an account?
-        <TextButton
-          color="secondary"
-          startIcon={ArrowRightOnRectangleIcon}
-          onClick={onSubmit}>
-          Log in
-        </TextButton>
-      </div>
-    </form>
+        <FilledButton
+          type="submit"
+          onClick={handleSubmit(onSubmit)}
+          startIcon={UserPlusIcon}>
+          Register
+        </FilledButton>
+      </form>
+    </div>
   );
 }
 

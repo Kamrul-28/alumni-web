@@ -3,7 +3,7 @@
     border-radius: 5px;
     font-size: theme('fontSize.md');
     font-weight: theme('fontWeight.medium');
-    background-color: theme('colors.primary.main') !important;
+    background-color: theme('colors.primary.main');
     color: theme('colors.primary.light');
     display: flex;
     align-items: center;
@@ -12,27 +12,27 @@
 }
 
 .button:hover {
-    background-color: theme('colors.secondary.main') !important;
+    background-color: theme('colors.secondary.main');
     color: theme('colors.secondary.light');
 }
 
 .primary {
-    background-color: theme('colors.primary.main') !important;
+    background-color: theme('colors.primary.main');
     color: theme('colors.primary.light');
 }
 
 .primary:hover {
-    background-color: theme('colors.secondary.main') !important;
+    background-color: theme('colors.secondary.main');
     color: theme('colors.secondary.light');
 }
 
 .secondary {
-    background-color: theme('colors.secondary.main') !important;
+    background-color: theme('colors.secondary.main');
     color: theme('colors.secondary.light');
 }
 
 .secondary:hover {
-    background-color: theme('colors.primary.main') !important;
+    background-color: theme('colors.primary.main');
     color: theme('colors.primary.light');
 }
 

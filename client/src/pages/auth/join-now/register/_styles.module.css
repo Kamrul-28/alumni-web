@@ -4,7 +4,7 @@
     gap: 20px;
 }
 
-.flex_row {
+.form_row {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -18,7 +18,7 @@
 }
 
 @media (max-width: theme('screens.sm')) {
-    .flex_row {
+    .form_row {
         flex-direction: column;
         align-items: flex-start;
     }

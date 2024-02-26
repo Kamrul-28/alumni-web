@@ -44,7 +44,14 @@ const OutlineSelectField = forwardRef((props, ref) => {
           </option>
         ))}
       </select>
-      {helperText && <span className={_styles.helper_message}>{helperText}</span>}
+      {helperText && (
+        <span
+          className={clsx(_styles.helper_message, {
+            [_styles.error]: error,
+          })}>
+          {helperText}
+        </span>
+      )}
     </div>
   );
 });

@@ -2,10 +2,19 @@ import { Fragment, useState } from "react";
 
 import { Link } from "react-router-dom";
 import { Dialog } from "@headlessui/react";
-import { ArrowRightIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowRightIcon,
+  Bars3Icon,
+  UserPlusIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 
 import TOP_NAV_ITEMS from "routes/navigations/topbar";
-import { FilledButton, IconButton } from "components/widgets/buttons";
+import {
+  OutlinedButton,
+  FilledButton,
+  IconButton,
+} from "components/widgets/buttons";
 
 import { APP_LOGO } from "assets/images";
 import SITE_CONFIG from "data/site.config";
@@ -52,8 +61,11 @@ function Topbar() {
           ))}
         </div>
         <div className={_styles.nav_actions}>
-          <Link to="/join-now">
-            <FilledButton endIcon={ArrowRightIcon}>Join Now</FilledButton>
+          <Link to="/register">
+            <FilledButton endIcon={UserPlusIcon}>Register</FilledButton>
+          </Link>
+          <Link to="/login">
+            <OutlinedButton endIcon={ArrowRightIcon}>Login</OutlinedButton>
           </Link>
         </div>
       </nav>
@@ -94,7 +106,14 @@ function Topbar() {
               <FilledButton
                 endIcon={ArrowRightIcon}
                 className={_styles.button_nav_link}>
-                Join Now
+                Login
+              </FilledButton>
+            </Link>
+            <Link to="/register">
+              <FilledButton
+                endIcon={ArrowRightIcon}
+                className={_styles.button_nav_link}>
+                Register
               </FilledButton>
             </Link>
           </div>

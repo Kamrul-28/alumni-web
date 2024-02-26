@@ -1,4 +1,5 @@
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 
@@ -19,8 +20,9 @@ import _styles from "./_styles.module.css";
 
 function Login() {
   const defaultValues = {
-    email: "",
+    identifier: "",
     password: "",
+    loginType: "ROLL",
   };
 
   const { control, handleSubmit } = useForm({
@@ -45,19 +47,15 @@ function Login() {
     <form className={_styles.container}>
       <h2 className={_styles.title}>Login</h2>
       <FieldController
-        name="email"
+        name="identifier"
         control={control}
         rules={{
           required: {
             value: true,
-            message: "Please provide email",
-          },
-          pattern: {
-            value: /\S+@\S+\.\S+/,
-            message: "Invalid email",
+            message: "Please provide student id",
           },
         }}>
-        <OutlineInputField label="Email" type="email" />
+        <OutlineInputField label="Student Id" />
       </FieldController>
       <FieldController
         name="password"
@@ -78,9 +76,11 @@ function Login() {
       </FilledButton>
       <div className={_styles.register_info}>
         Want to create account?
-        <TextButton color="secondary" startIcon={UserPlusIcon}>
-          Register
-        </TextButton>
+        <Link to="/register">
+          <TextButton color="secondary" startIcon={UserPlusIcon}>
+            Register
+          </TextButton>
+        </Link>
       </div>
     </form>
   );
