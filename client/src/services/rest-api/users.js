@@ -11,7 +11,7 @@ export const totalUsers = (params = {}) =>
 export const userDetails = (userId, params = {}) =>
   apiRequest({
     method: "get",
-    url: `${ENDPOINTS.USERS}${userId}/`,
+    url: `${ENDPOINTS.USERS}/${userId}`,
     params: params,
   });
 
@@ -25,11 +25,11 @@ export const createUser = (data) =>
 export const updateUser = (data) =>
   apiRequest({
     method: "patch",
-    url: `${ENDPOINTS.USERS}${data?.id}/`,
+    url: `${ENDPOINTS.USERS}/${data?.id}`,
     data: data,
   });
 export const deleteUser = (ID) =>
   apiRequest({
     method: "delete",
-    url: `${ENDPOINTS.USERS}${ID}/`,
+    url: `${ENDPOINTS.USERS}/${ID}`,
   });

@@ -41,7 +41,7 @@ function Login() {
     mutate(data);
   };
 
-  if (isPending) return ApiResponseLoader;
+  if (isPending) return <ApiResponseLoader />;
 
   return (
     <form className={_styles.container}>

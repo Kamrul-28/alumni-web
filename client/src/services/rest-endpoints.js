@@ -1,6 +1,6 @@
 const ENDPOINTS = {
-  USERS: "/users/",
-  AUTH: "/auth/",
+  USERS: "/user-info",
+  AUTH: "/auth",
 };
 
 export default ENDPOINTS;

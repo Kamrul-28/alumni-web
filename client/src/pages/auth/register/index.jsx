@@ -16,7 +16,7 @@ import { ApiResponseLoader } from "components/modules/loaders";
 import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
 import { UserPlusIcon } from "@heroicons/react/24/outline";
 
-import { createUser } from "services/rest-api/users";
+import { createAccount } from "services/rest-api/auth";
 // import { handleFormError } from "services/error-handling";
 import { QUEUE } from "assets/images";
 
@@ -28,13 +28,11 @@ function Register() {
     roll: "",
     password: "",
     confirmPassword: "",
-    firstname: "",
+    firstName: "",
     lastName: "",
     nickName: "",
     email: "",
     phoneNumber: "",
-    profession: "",
-    designation: "",
     bloodGroup: "",
     dob: "",
     disciplineId: 2,
@@ -48,7 +46,7 @@ function Register() {
   const password = watch("password");
 
   const { isPending, mutate } = useMutation({
-    mutationFn: createUser,
+    mutationFn: createAccount,
     onSuccess: (data) => {
       toast.success("Successfully Create Account");
     },
@@ -59,7 +57,7 @@ function Register() {
     mutate(data);
   };
 
-  if (isPending) return ApiResponseLoader;
+  if (isPending) return <ApiResponseLoader />;
 
   return (
     <div className={_styles.container}>
@@ -92,7 +90,7 @@ function Register() {
         <h2 className={_styles.title}>Create Your Account</h2>
         <div className={_styles.form_row}>
           <FieldController
-            name="firstname"
+            name="firstName"
             control={control}
             rules={{
               required: {
@@ -160,14 +158,6 @@ function Register() {
           </FieldController>
           <FieldController name="dob" control={control}>
             <OutlineInputField label="Date Of Birth" type="date" />
-          </FieldController>
-        </div>
-        <div className={_styles.form_row}>
-          <FieldController name="profession" control={control}>
-            <OutlineInputField label="Profession" />
-          </FieldController>
-          <FieldController name="designation" control={control}>
-            <OutlineInputField label="Designation" />
           </FieldController>
         </div>
         <div className={_styles.form_row}>

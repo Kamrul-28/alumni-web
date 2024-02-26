@@ -7,3 +7,10 @@ export const attemptLogin = (data) =>
     url: `${ENDPOINTS.AUTH}`,
     data: data,
   });
+
+export const createAccount = (data) =>
+  apiRequest({
+    method: "post",
+    url: `/alumni`,
+    data: data,
+  });
