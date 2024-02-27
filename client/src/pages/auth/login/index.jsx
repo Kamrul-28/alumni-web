@@ -13,8 +13,8 @@ import { ApiResponseLoader } from "components/modules/loaders";
 import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
 import { UserPlusIcon } from "@heroicons/react/24/outline";
 
-import { createUser } from "services/rest-api/users";
-// import { handleFormError } from "services/error-handling";
+import { attemptLogin } from "services/rest-api/auth";
+import { handleFormError } from "services/error-handling";
 
 import _styles from "./_styles.module.css";
 
@@ -25,19 +25,21 @@ function Login() {
     loginType: "ROLL",
   };
 
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit, setError } = useForm({
     defaultValues: defaultValues,
   });
 
   const { isPending, mutate } = useMutation({
-    mutationFn: createUser,
+    mutationFn: attemptLogin,
     onSuccess: (data) => {
       toast.success("Successfully Create Account");
+    },
+    onError: (error) => {
+      handleFormError(error, setError);
     },
   });
 
   const onSubmit = (data) => {
-    console.log(data);
     mutate(data);
   };
 

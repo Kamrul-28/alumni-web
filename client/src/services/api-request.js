@@ -1,16 +1,24 @@
+import { isObject } from "utils/check";
+
 const formatErrorResponse = (error_response) => {
-  if (Array.isArray(error_response)) {
-    return error_response[0];
-  } else if (typeof error_response === "object") {
-    const error_object = {};
-    for (let [key, value] of Object.entries(error_response)) {
-      error_object[key] = value[0];
+  if (isObject(error_response)) {
+    const { value, message } = error_response || {};
+
+    if (message.includes("=>") && message.includes("/n")) {
+      const splited_parts = message.split("/n");
+      const error_fields = {};
+
+      for (let field_error of splited_parts) {
+        const [field, error_value] = field_error.split("=>");
+
+        if (!field && !error_value) continue;
+        error_fields[field.trim()] = error_value.trim();
+      }
+      return { status_code: value, message: error_fields };
     }
-    return error_object;
-  } else if (error_response?.hasOwnProperty("detail")) {
-    return error_response?.detail;
+
+    return { status_code: value, message: message };
   }
-  return error_response;
 };
 
 const apiRequest = async ({ method, url, params, data, timeout = 20 * 1000 }) => {
@@ -49,14 +57,14 @@ const apiRequest = async ({ method, url, params, data, timeout = 20 * 1000 }) =>
     return response_data;
   } else {
     const error = new Error("An error occurred while interacting with api.");
-    error.response = {
-      status: api_response.status,
-      message: error_resoponse,
+    error.info = {
+      status_code: error_resoponse.status_code || api_response.status,
+      message: error_resoponse.message || api_response.statusText,
     };
 
     if (import.meta.env.DEV) {
       // eslint-disable-next-line no-console
-      console.error("error", error.info);
+      console.info("error", error.info);
     }
     return Promise.reject(error);
   }

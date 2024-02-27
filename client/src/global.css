@@ -39,3 +39,10 @@ body {
 button {
   background-color: transparent;
 }
+
+
+/* alert box css override */
+
+.swal2-icon {
+  font-size: 12px;
+}

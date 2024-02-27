@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { TextButton } from "components/widgets/buttons";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
-import { formatShortMonth } from "utils/date-helper";
+import { formatShortMonth } from "utils/date-time";
 
 import _styles from "./_styles.module.css";
 

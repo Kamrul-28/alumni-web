@@ -31,6 +31,7 @@ export default ({ mode }) => {
         services: "/src/services",
         store: "/src/store",
         utils: "/src/utils",
+        helpers: "/src/helpers",
       },
     },
   });

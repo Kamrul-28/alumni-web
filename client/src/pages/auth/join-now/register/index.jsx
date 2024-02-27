@@ -1,14 +1,18 @@
+import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
+import { useMutation } from "@tanstack/react-query";
 
 import { FieldController } from "components/_controllers";
 import { BaseCheckbox } from "components/widgets/checkboxs";
 import { FilledButton } from "components/widgets/buttons";
 import { OutlineInputField } from "components/widgets/inputs";
-import { OutlineSelectField } from "components/widgets/selects";
+import { ApiResponseLoader } from "components/modules/loaders";
 
 import { UserPlusIcon } from "@heroicons/react/24/outline";
 
-import { BLOOD_GROUPS } from "./_data";
+import { createAccount } from "services/rest-api/auth";
+import { handleFormError } from "services/error-handling";
+
 import _styles from "./_styles.module.css";
 
 function Register() {
@@ -18,20 +22,32 @@ function Register() {
     confirmPassword: "",
     firstname: "",
     lastName: "",
-    phoneNumber: "",
-    bloodGroup: "",
+    dob: "",
+    email: "",
     disciplineId: 2,
     isAgree: true,
   };
 
-  const { control, handleSubmit, watch } = useForm({
+  const { control, handleSubmit, watch, setError } = useForm({
     defaultValues: defaultValues,
   });
   const password = watch("password");
 
+  const { isPending, mutate } = useMutation({
+    mutationFn: createAccount,
+    onError: (error) => {
+      handleFormError(error, setError);
+    },
+    onSuccess: (data) => {
+      toast.success("Successfully Create Account");
+    },
+  });
+
   const onSubmit = (data) => {
-    console.log(data);
+    mutate(data);
   };
+
+  if (isPending) return <ApiResponseLoader />;
 
   return (
     <form className={_styles.container}>
@@ -54,18 +70,22 @@ function Register() {
       </div>
       <div className={_styles.form_row}>
         <FieldController
-          name="phoneNumber"
+          name="email"
           control={control}
           rules={{
+            pattern: {
+              value: /\S+@\S+\.\S+/,
+              message: "Invalid email",
+            },
             required: {
               value: true,
-              message: "Please provide mobile number",
+              message: "Please provide email",
             },
           }}>
-          <OutlineInputField label="Mobile" type="tel" />
+          <OutlineInputField label="Email" type="email" />
         </FieldController>
         <FieldController
-          name="bloodGroup"
+          name="dob"
           control={control}
           rules={{
             required: {
@@ -73,7 +93,12 @@ function Register() {
               message: "Please provide blood group",
             },
           }}>
-          <OutlineSelectField label="Blood Group" items={BLOOD_GROUPS} />
+          <OutlineInputField
+            label="Date Of Birth"
+            type="date"
+            min="1960-01-01"
+            max="2010-01-01"
+          />
         </FieldController>
       </div>
       <div className={_styles.form_row}>

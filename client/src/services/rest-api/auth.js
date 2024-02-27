@@ -4,7 +4,7 @@ import ENDPOINTS from "services/rest-endpoints";
 export const attemptLogin = (data) =>
   apiRequest({
     method: "post",
-    url: `${ENDPOINTS.AUTH}`,
+    url: `${ENDPOINTS.AUTH}/login`,
     data: data,
   });
 
