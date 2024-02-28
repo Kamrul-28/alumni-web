@@ -26,11 +26,11 @@ import _styles from "./_styles.module.css";
 function Register() {
   const defaultValues = {
     roll: "",
+    nickName: "",
     password: "",
     confirmPassword: "",
     firstName: "",
     lastName: "",
-    nickName: "",
     email: "",
     phoneNumber: "",
     bloodGroup: "",
@@ -113,6 +113,10 @@ function Register() {
               required: {
                 value: true,
                 message: "Please provide student id",
+              },
+              minLength: {
+                value: 6,
+                message: "Please provide a valid student id",
               },
             }}>
             <OutlineInputField label="Student Id" />

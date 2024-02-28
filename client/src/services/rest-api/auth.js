@@ -8,6 +8,20 @@ export const attemptLogin = (data) =>
     data: data,
   });
 
+export const attemptLogout = (data) =>
+  apiRequest({
+    method: "post",
+    url: `${ENDPOINTS.AUTH}/logout`,
+    data: data,
+  });
+
+export const refreshToken = (data) =>
+  apiRequest({
+    method: "post",
+    url: `${ENDPOINTS.AUTH}/forget-password`,
+    data: data,
+  });
+
 export const createAccount = (data) =>
   apiRequest({
     method: "post",
