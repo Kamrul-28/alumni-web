@@ -13,12 +13,17 @@ import { ApiResponseLoader } from "components/modules/loaders";
 import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
 import { UserPlusIcon } from "@heroicons/react/24/outline";
 
+import useNavigation from "hooks/useNavigation";
+import { useUserContext } from "store/context/user";
 import { attemptLogin } from "services/rest-api/auth";
 import { handleFormError } from "services/error-handling";
 
 import _styles from "./_styles.module.css";
 
 function Login() {
+  const { setPath } = useNavigation();
+  const { setLogin } = useUserContext();
+
   const defaultValues = {
     identifier: "",
     password: "",
@@ -32,7 +37,9 @@ function Login() {
   const { isPending, mutate } = useMutation({
     mutationFn: attemptLogin,
     onSuccess: (data) => {
-      toast.success("Successfully Create Account");
+      setLogin(data?.token);
+      toast.success("Successfully Logged In");
+      setPath("/my-profile");
     },
     onError: (error) => {
       handleFormError(error, setError);

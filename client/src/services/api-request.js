@@ -1,4 +1,5 @@
 import { isObject } from "utils/check";
+import TokenStore from "helpers/token-store";
 
 const formatErrorResponse = (error_response) => {
   if (isObject(error_response)) {
@@ -27,7 +28,8 @@ const apiRequest = async ({ method, url, params, data, timeout = 20 * 1000 }) =>
   const api_route = Boolean(params) ? `${url}?${query_params}` : url;
   const base_url = `${import.meta.env.VITE_SERVER_DOMAIN}${api_route}`;
 
-  const access_token = import.meta.env.VITE_LOCAL_DB_TOKEN_KEY;
+  const tokenStore = new TokenStore("access");
+  const access_token = tokenStore.getToken();
 
   const controller = new AbortController();
   const signal = controller.signal;
@@ -37,15 +39,13 @@ const apiRequest = async ({ method, url, params, data, timeout = 20 * 1000 }) =>
     signal: signal,
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Token ${localStorage.getItem(access_token)}`,
+      Authorization: `Token ${access_token}`,
     },
     body: JSON.stringify(data),
   });
 
   // const timout_id = setTimeout(() => controller.abort(), timeout);
-
   const response_data = await api_response.json();
-  const error_resoponse = formatErrorResponse(response_data);
 
   // clearTimeout(timout_id);
 
@@ -56,6 +56,7 @@ const apiRequest = async ({ method, url, params, data, timeout = 20 * 1000 }) =>
     }
     return response_data;
   } else {
+    const error_resoponse = formatErrorResponse(response_data);
     const error = new Error("An error occurred while interacting with api.");
     error.info = {
       status_code: error_resoponse.status_code || api_response.status,

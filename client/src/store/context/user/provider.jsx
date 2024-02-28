@@ -1,5 +1,8 @@
 import { createContext, useMemo, useReducer } from "react";
 
+import TokenStore from "helpers/token-store";
+import UserStore from "helpers/user-store";
+
 export const Context = createContext();
 
 export const SET_USER = "SET_USER";
@@ -7,33 +10,39 @@ export const SET_LOGIN = "SET_LOGIN";
 export const SET_LOGOUT = "SET_LOGOUT";
 
 const UserProvider = (props) => {
-  const saved_user = localStorage.getItem(import.meta.env.VITE_LOCAL_DB_USER_KEY);
+  const userStore = new UserStore();
+  const tokenStore = new TokenStore("access");
+
+  const saved_user = userStore.getUser();
+  const saved_token = tokenStore.getToken();
 
   const initial_state = {
+    user: saved_user,
+    token: saved_token,
     is_login: Boolean(saved_user) ? true : false,
-    user: JSON.parse(saved_user) || {},
   };
 
   const reducer = (state, action) => {
     switch (action.type) {
       case SET_LOGIN: {
-        const json_user = JSON.stringify(action.payload);
-        localStorage.setItem(import.meta.env.VITE_LOCAL_DB_USER_KEY, json_user);
+        tokenStore.setToken(action.payload);
         return {
           ...state,
           is_login: true,
-          user: action.payload,
+          token: action.payload,
         };
       }
       case SET_USER: {
-        const json_user = JSON.stringify(action.payload);
-        localStorage.setItem(import.meta.env.VITE_LOCAL_DB_TOKEN_KEY, json_user);
+        userStore.setUser(action.payload);
         return {
           ...state,
           user: action.payload,
         };
       }
       case SET_LOGOUT: {
+        tokenStore.clearToken();
+        userStore.clearUser();
+
         return {
           ...state,
           user: null,

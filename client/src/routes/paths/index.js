@@ -4,6 +4,7 @@ import ABOUT_ROUTE from "./about";
 import EVENTS_ROUTE from "./events";
 import ALUMNI_ROUTE from "./alumni";
 import JOB_CIRCULAR_ROUTE from "./job-circular";
+import MY_DASHBOARD from "./my-dashboard";
 
 const BROWSE_ROUTE = [
   ...AUTH_ROUTE,
@@ -11,6 +12,7 @@ const BROWSE_ROUTE = [
   ...ABOUT_ROUTE,
   ...EVENTS_ROUTE,
   ...ALUMNI_ROUTE,
+  ...MY_DASHBOARD,
   ...JOB_CIRCULAR_ROUTE,
 ];
 

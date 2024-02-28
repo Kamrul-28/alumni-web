@@ -14,6 +14,7 @@ const useNavigation = () => {
   const query = useQuery();
   const params = useParams();
   const navigate = useNavigate();
+
   const { pathname, hash } = useLocation();
 
   const hash_param = hash?.split("#")[1] || "";
