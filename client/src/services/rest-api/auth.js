@@ -22,6 +22,20 @@ export const refreshToken = (data) =>
     data: data,
   });
 
+export const forgetPassword = (data) =>
+  apiRequest({
+    method: "post",
+    url: `${ENDPOINTS.AUTH}/forget-password`,
+    data: data,
+  });
+
+export const resetPassword = (data) =>
+  apiRequest({
+    method: "post",
+    url: `${ENDPOINTS.AUTH}/reset-password`,
+    data: data,
+  });
+
 export const createAccount = (data) =>
   apiRequest({
     method: "post",

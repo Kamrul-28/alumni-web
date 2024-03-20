@@ -9,11 +9,24 @@
     gap: theme('gap.card');
 }
 
-.draw_line {
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+.horizontal_line {
     margin: auto 0px;
     width: 1px;
     height: 20em;
     background-color: theme('colors.primary.main');
+}
+
+.vertical_line {
+    margin: 0px auto;
+    width: 15em;
+    height: 1px;
+    background-color: theme('colors.secondary.main');
 }
 
 .logo {
@@ -28,13 +41,14 @@
     }
 }
 
-@media (max-width: theme('screens.sm')) {
+@media (max-width: theme('screens.md')) {
     .container {
         display: flex;
         flex-direction: column;
     }
 
-    .draw_line {
+    .horizontal_line,
+    .vertical_line {
         display: none;
     }
 }

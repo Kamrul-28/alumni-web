@@ -8,31 +8,24 @@ import { OutlineInputField } from "components/widgets/inputs";
 
 import { ApiResponseLoader } from "components/modules/loaders";
 
-import { WrenchScrewdriverIcon } from "@heroicons/react/24/outline";
+import { ArrowUpOnSquareIcon } from "@heroicons/react/24/outline";
 
-import { resetPassword } from "services/rest-api/auth";
+import { forgetPassword } from "services/rest-api/auth";
 import { handleFormError } from "services/error-handling";
-import useNavigation from "hooks/useNavigation";
 
 import _styles from "./_styles.module.css";
 
-function ResetPassword() {
-  const { params } = useNavigation();
-  const token = params?.token;
-
+function ForgetPassword() {
   const defaultValues = {
-    token: token,
-    password: "",
-    confirmPassword: "",
+    email: "",
   };
 
-  const { control, handleSubmit, watch, setError } = useForm({
+  const { control, handleSubmit, setError } = useForm({
     defaultValues: defaultValues,
   });
-  const password = watch("password");
 
   const { isPending, mutate } = useMutation({
-    mutationFn: resetPassword,
+    mutationFn: forgetPassword,
     onError: (error) => {
       handleFormError(error, setError);
     },
@@ -49,39 +42,30 @@ function ResetPassword() {
 
   return (
     <form className={_styles.form}>
-      <h2 className={_styles.title}>Reset Password</h2>
+      <h2 className={_styles.title}>Forget Password</h2>
       <FieldController
-        name="password"
+        name="email"
         control={control}
         rules={{
+          pattern: {
+            value: /\S+@\S+\.\S+/,
+            message: "Invalid email",
+          },
           required: {
             value: true,
-            message: "Please provide password",
+            message: "Please provide email",
           },
         }}>
-        <OutlineInputField label="Passowrd" type="password" />
-      </FieldController>
-      <FieldController
-        name="confirmPassword"
-        control={control}
-        rules={{
-          required: {
-            value: true,
-            message: "Please provide confirm password",
-          },
-          validate: (value) =>
-            !Boolean(value) || value === password || "Password mismatch",
-        }}>
-        <OutlineInputField label="Confirm Passowrd" type="password" />
+        <OutlineInputField label="Email" type="email" />
       </FieldController>
       <FilledButton
         type="submit"
         onClick={handleSubmit(onSubmit)}
-        startIcon={WrenchScrewdriverIcon}>
-        Reset Password
+        startIcon={ArrowUpOnSquareIcon}>
+        Get Reset Link
       </FilledButton>
     </form>
   );
 }
 
-export default ResetPassword;
+export default ForgetPassword;

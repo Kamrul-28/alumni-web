@@ -15,6 +15,7 @@ import { ApiResponseLoader } from "components/modules/loaders";
 
 import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
 import { UserPlusIcon } from "@heroicons/react/24/outline";
+import { BugAntIcon } from "@heroicons/react/24/outline";
 
 import { createAccount } from "services/rest-api/auth";
 import { handleFormError } from "services/error-handling";
@@ -78,11 +79,13 @@ function Register() {
         <div className={_styles.login_info}>
           Already have an account?
           <Link to="/login">
-            <TextButton
-              color="secondary"
-              startIcon={ArrowRightOnRectangleIcon}
-              onClick={onSubmit}>
+            <TextButton color="secondary" startIcon={ArrowRightOnRectangleIcon}>
               Log in
+            </TextButton>
+          </Link>
+          <Link to="/forget-password">
+            <TextButton color="secondary" startIcon={BugAntIcon}>
+              Forget Password?
             </TextButton>
           </Link>
         </div>

@@ -69,24 +69,26 @@ function Register() {
           <OutlineInputField label="Last Name" />
         </FieldController>
       </div>
-      <FieldController
-        name="roll"
-        control={control}
-        rules={{
-          required: {
-            value: true,
-            message: "Please provide student id",
-          },
-          minLength: {
-            value: 6,
-            message: "Please provide a valid student id",
-          },
-        }}>
-        <OutlineInputField label="Student Id" />
-      </FieldController>
-      <FieldController name="nickName" control={control}>
-        <OutlineInputField label="Nick Name" />
-      </FieldController>
+      <div className={_styles.form_row}>
+        <FieldController
+          name="roll"
+          control={control}
+          rules={{
+            required: {
+              value: true,
+              message: "Please provide student id",
+            },
+            minLength: {
+              value: 6,
+              message: "Please provide a valid student id",
+            },
+          }}>
+          <OutlineInputField label="Student Id" />
+        </FieldController>
+        <FieldController name="nickName" control={control}>
+          <OutlineInputField label="Nick Name" />
+        </FieldController>
+      </div>
       <div className={_styles.form_row}>
         <FieldController
           name="email"
