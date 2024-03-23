@@ -6,6 +6,16 @@
     background-color: theme('colors.background.white');
 }
 
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    outline: 3px solid theme('colors.primary.main');
+    outline-offset: 2px;
+    cursor: pointer;
+}
+
 .logo {
     width: 100px;
     height: 100%;

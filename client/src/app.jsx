@@ -1,7 +1,7 @@
 // import ReactGA from "react-ga4";
 
 import Routes from "routes";
-import StateProvider from "store/provider";
+import StoreProvider from "store/provider";
 import QueryProvider from "services/query-provider";
 
 import { ToastContainer } from "react-toastify";
@@ -12,10 +12,10 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <QueryProvider>
-      <StateProvider>
+      <StoreProvider>
         <Routes />
         <ToastContainer theme="colored" hideProgressBar={true} />
-      </StateProvider>
+      </StoreProvider>
     </QueryProvider>
   );
 }

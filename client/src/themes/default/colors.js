@@ -1,7 +1,8 @@
 export default {
   common: {
-    white: "#fff",
-    black: "#000",
+    white: "#ffffff",
+    black: "#000000",
+    grey: "#aaa",
   },
   primary: {
     light: "#eff4fe",

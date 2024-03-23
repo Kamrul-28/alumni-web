@@ -4,30 +4,35 @@ import { Link } from "react-router-dom";
 import { Dialog } from "@headlessui/react";
 import {
   ArrowRightIcon,
+  ArrowRightOnRectangleIcon,
   Bars3Icon,
   UserPlusIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 
-import TOP_NAV_ITEMS from "routes/navigations/topbar";
 import {
-  OutlinedButton,
   FilledButton,
   IconButton,
+  OutlinedButton,
 } from "components/widgets/buttons";
 
 import { APP_LOGO } from "assets/images";
+import { useUserContext } from "store/context/user";
+
+import TOP_NAV_ITEMS from "routes/navigations/topbar";
 import SITE_CONFIG from "data/site.config";
 
 import _styles from "./_styles.module.css";
 
-function Topbar() {
-  const [openMobileMenu, setOpenMobileMenu] = useState(false);
+import UserMenu from "./user-menu";
 
+function Topbar() {
+  const { is_login } = useUserContext();
+
+  const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const handleOpenMobileMenu = () => {
     setOpenMobileMenu(true);
   };
-
   const handleCloseMobileMenu = () => {
     setOpenMobileMenu(false);
   };
@@ -61,12 +66,18 @@ function Topbar() {
           ))}
         </div>
         <div className={_styles.nav_actions}>
-          <Link to="/register">
-            <FilledButton endIcon={UserPlusIcon}>Register</FilledButton>
-          </Link>
-          <Link to="/login">
-            <OutlinedButton endIcon={ArrowRightIcon}>Login</OutlinedButton>
-          </Link>
+          {is_login ? (
+            <UserMenu />
+          ) : (
+            <>
+              <Link to="/register">
+                <FilledButton endIcon={UserPlusIcon}>Register</FilledButton>
+              </Link>
+              <Link to="/login">
+                <OutlinedButton endIcon={ArrowRightIcon}>Login</OutlinedButton>
+              </Link>
+            </>
+          )}
         </div>
       </nav>
       {/* mobile */}
@@ -116,6 +127,9 @@ function Topbar() {
                 Register
               </FilledButton>
             </Link>
+            <OutlinedButton endIcon={ArrowRightOnRectangleIcon} color="secondary">
+              Logout
+            </OutlinedButton>
           </div>
         </div>
       </Dialog>
