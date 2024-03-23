@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { OutlinedButton } from "components/widgets/buttons";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
-import { COVER1, COVER2, COVER3 } from "assets/images";
+import { COVER1, COVER2, COVER3 } from "assets/images/covers";
 
 import { SOCIAL_CONTACTS } from "data/site.config";
 

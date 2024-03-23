@@ -47,11 +47,11 @@ function Register() {
 
   const { isPending, mutate } = useMutation({
     mutationFn: createAccount,
-    onError: (error) => {
-      handleFormError(error, setError);
-    },
     onSuccess: (data) => {
       toast.success("Successfully Create Account");
+    },
+    onError: (error) => {
+      handleFormError(error, setError);
     },
   });
 
@@ -150,7 +150,7 @@ function Register() {
         </div>
         <div className={_styles.form_row}>
           <FieldController
-            name="dob"
+            name="bloodGroup"
             control={control}
             rules={{
               required: {
@@ -158,15 +158,15 @@ function Register() {
                 message: "Please provide blood group",
               },
             }}>
+            <OutlineSelectField label="Blood Group" items={BLOOD_GROUPS} />
+          </FieldController>
+          <FieldController name="dob" control={control}>
             <OutlineInputField
               label="Date Of Birth"
               type="date"
               min="1960-01-01"
               max="2010-01-01"
             />
-          </FieldController>
-          <FieldController name="bloodGroup" control={control}>
-            <OutlineSelectField label="Blood Group" items={BLOOD_GROUPS} />
           </FieldController>
         </div>
         <div className={_styles.form_row}>
