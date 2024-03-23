@@ -27,7 +27,7 @@ import _styles from "./_styles.module.css";
 import UserMenu from "./user-menu";
 
 function Topbar() {
-  const { is_login } = useUserContext();
+  const { is_login, setLogout } = useUserContext();
 
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const handleOpenMobileMenu = () => {
@@ -127,7 +127,10 @@ function Topbar() {
                 Register
               </FilledButton>
             </Link>
-            <OutlinedButton endIcon={ArrowRightOnRectangleIcon} color="secondary">
+            <OutlinedButton
+              color="secondary"
+              endIcon={ArrowRightOnRectangleIcon}
+              onClick={setLogout}>
               Logout
             </OutlinedButton>
           </div>
