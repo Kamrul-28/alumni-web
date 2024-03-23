@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
 
 import { Menu, Transition } from "@headlessui/react";
 import {
@@ -8,15 +9,28 @@ import {
 } from "@heroicons/react/24/outline";
 
 import { TextButton } from "components/widgets/buttons";
+import { ApiResponseLoader } from "components/modules/loaders";
 
 import { AVATAR } from "assets/images";
 
 import { useUserContext } from "store/context/user";
+import { attemptLogout } from "services/rest-api/auth";
 
 import _styles from "./_styles.module.css";
 
 export default function UserMenu() {
   const { setLogout } = useUserContext();
+
+  const { isPending, mutate } = useMutation({
+    mutationFn: attemptLogout,
+    onSuccess: setLogout,
+  });
+
+  const onLogout = () => {
+    mutate();
+  };
+
+  if (isPending) return <ApiResponseLoader />;
 
   return (
     <Menu as="div" className={_styles.menu}>
@@ -34,7 +48,7 @@ export default function UserMenu() {
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <TextButton startIcon={ArrowRightOnRectangleIcon} onClick={setLogout}>
+            <TextButton startIcon={ArrowRightOnRectangleIcon} onClick={onLogout}>
               Logout
             </TextButton>
           </Menu.Item>

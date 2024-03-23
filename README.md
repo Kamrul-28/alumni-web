@@ -45,5 +45,4 @@ You are encourage to install the to get better experience
 
 ## Deployment
 
-- docker build -t alumni-web .
-- docker run -p 3000:3000 alumni-web
+- `docker compose up`

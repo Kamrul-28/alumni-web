@@ -19,8 +19,7 @@ const UserProvider = (props) => {
   const initial_state = {
     user: saved_user,
     token: saved_token,
-    // is_login: Boolean(saved_user) ? true : false,
-    is_login: true,
+    is_login: Boolean(saved_token) ? true : false,
   };
 
   const reducer = (state, action) => {
