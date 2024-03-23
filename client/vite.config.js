@@ -15,7 +15,7 @@ export default ({ mode }) => {
       strictPort: true,
     },
     build: {
-      outDir: "build",
+      outDir: "dist",
       sourcemap: "hidden",
     },
     resolve: {
