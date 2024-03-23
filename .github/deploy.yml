@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main] # Replace "main" with your branch name if different
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # You can choose a different runner
+
+    steps:
+      - uses: actions/checkout@v3 # Checkout code from your repository
+
+      - name: Login to Docker Hub
+        if: ${{ secrets.DOCKER_USERNAME }} # Only if Docker Hub credentials are provided
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v3 # Pushes to Docker Hub by default
+        with:
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/your_image_name:latest # Replace "your_image_name"
+  
+    deploy:
+    runs-on: ubuntu-latest  # deployment server runner
+    needs: build  # This job depends on the successful completion of the "build" job
+    environment: production  # Optional: Set an environment name
+
+
+    steps:
+    - name: Deploy to server
+      run: |
+        ssh user@your-server 'docker-compose -f /path/to/your/docker-compose.yml pull my-react-app && docker-compose -f /path/to/your/docker-compose.yml up -d'
+
+    steps:
+      - name: Deploy the application
+        uses: some-deploy-action@v1  # Replace with your deployment action
+        with:
+          # Secrets for SSH key or API credentials
+          # Specific deployment commands
+      
+      - name: Deploy using SSH
+        uses: runs/run-ssh@v2  # Built-in SSH action
+        with:
+          ssh-key: ${{ secrets.DEPLOY_KEY }}  # private key (Security Risk)
+          host: ${{ secrets.SERVER_HOST }}  # Deployment server hostname
+          username: ${{ secrets.SERVER_USERNAME }}  # Username for SSH access
+          commands: |  # Deployment commands to run on the server
+            cd /path/to/your/application  # Replace with your deployment directory
+            docker pull ${{ secrets.DOCKER_USERNAME }}/your_image_name:latest
+            docker stop my_container_name  # Stop existing container (optional)
+            docker run -d --name my_container_name your_image_name:latest
+

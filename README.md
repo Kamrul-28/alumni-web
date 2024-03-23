@@ -7,6 +7,7 @@
 - [Intallation Process](#installation-process)
 - [Project Run](./client/README.md#run-command)
 - [Project Instruction](./client/README.md)
+- [Deployment](#deployment)
 
 Use vscode to get better experience
 
@@ -41,3 +42,8 @@ You are encourage to install the to get better experience
 - `cd client` (enter into project directory)
 - `npm install` (install required npm packages)
 - configure enviroment variables for [development](./client/.env.development) | [staging](./client/.env.staging) | [testing](./client/.env.testing) | [production](./client/.env.production)
+
+## Deployment
+
+- docker build -t alumni-web .
+- docker run -p 3000:3000 alumni-web
