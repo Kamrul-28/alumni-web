@@ -1,5 +1,5 @@
 import APP_LOGO from "./kuaa-logo.png";
-import STUDYING from "./Studying.svg";
+import STUDYING from "./studying.svg";
 import DONATION from "./donation.svg";
 import SHARING from "./sharing.svg";
 import CAMERA from "./camera.png";
