@@ -1,4 +1,4 @@
-import { isEmptyObj, isObject } from "utils/check";
+import { hasParam, isObject } from "utils/check";
 import TokenStore from "helpers/token-store";
 
 const formatErrorResponse = (error_response) => {
@@ -25,7 +25,7 @@ const formatErrorResponse = (error_response) => {
 const apiRequest = async ({ method, url, params, data, timeout = 20 * 1000 }) => {
   const query_params = new URLSearchParams(params);
 
-  const api_route = isEmptyObj(params) ? url : `${url}?${query_params}`;
+  const api_route = hasParam(params) ? `${url}?${query_params}` : url;
   const base_url = `${import.meta.env.VITE_SERVER_DOMAIN}${api_route}`;
 
   const tokenStore = new TokenStore("access");
