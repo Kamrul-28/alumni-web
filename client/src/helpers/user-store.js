@@ -2,7 +2,7 @@ import { isObject } from "utils/check";
 
 class UserStore {
   constructor() {
-    this.key = import.meta.env.VITE_LOCAL_DB_USER_KEY;
+    this.key = `${import.meta.env.VITE_LOCAL_DB_PREFIX}_user`;
   }
 
   setUser(user) {

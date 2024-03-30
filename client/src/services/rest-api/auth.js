@@ -15,10 +15,10 @@ export const attemptLogout = (data) =>
     data: data,
   });
 
-export const refreshToken = (data) =>
+export const postRefreshToken = (data) =>
   apiRequest({
     method: "post",
-    url: `${ENDPOINTS.AUTH}/forget-password`,
+    url: `${ENDPOINTS.AUTH}/refresh-token`,
     data: data,
   });
 

@@ -8,28 +8,29 @@ export const Context = createContext();
 export const SET_USER = "SET_USER";
 export const SET_LOGIN = "SET_LOGIN";
 export const SET_LOGOUT = "SET_LOGOUT";
+export const SET_TOKEN = "SET_TOKEN";
 
 const UserProvider = (props) => {
   const userStore = new UserStore();
-  const tokenStore = new TokenStore("access");
+  const accessTokenStore = new TokenStore("access");
+  const refreshTokenStore = new TokenStore("refresh");
 
   const saved_user = userStore.getUser();
-  const saved_token = tokenStore.getToken();
+  const saved_token = accessTokenStore.getToken();
 
   const initial_state = {
     user: saved_user,
-    token: saved_token,
     is_login: Boolean(saved_token) ? true : false,
   };
 
   const reducer = (state, action) => {
     switch (action.type) {
       case SET_LOGIN: {
-        tokenStore.setToken(action.payload);
+        accessTokenStore.setToken(action.payload?.token);
+        refreshTokenStore.setToken(action.payload?.refreshToken);
         return {
           ...state,
           is_login: true,
-          token: action.payload,
         };
       }
       case SET_USER: {
@@ -40,7 +41,8 @@ const UserProvider = (props) => {
         };
       }
       case SET_LOGOUT: {
-        tokenStore.clearToken();
+        refreshTokenStore.clearToken();
+        accessTokenStore.clearToken();
         userStore.clearUser();
 
         return {

@@ -33,7 +33,7 @@ function Login() {
   const { isPending, mutate } = useMutation({
     mutationFn: attemptLogin,
     onSuccess: (data) => {
-      setLogin(data?.token);
+      setLogin(data);
       toast.success("Successfully Logged In");
       setPath("/my-profile");
     },

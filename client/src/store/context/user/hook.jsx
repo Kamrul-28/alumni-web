@@ -11,8 +11,8 @@ const useUserContext = () => {
   const { user, is_login } = state;
 
   const setLogin = useCallback(
-    (user) => {
-      dispatch({ type: SET_LOGIN, payload: user });
+    (payload) => {
+      dispatch({ type: SET_LOGIN, payload: payload });
     },
     [dispatch],
   );

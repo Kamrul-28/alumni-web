@@ -1,25 +1,28 @@
+import LocalStore from "./local-store";
+// import SessionStore from "./session-store";
+
 class TokenStore {
   store_map = {
-    access: import.meta.env.VITE_LOCAL_DB_TOKEN_KEY,
-    refresh: "refresh_token",
+    access: new LocalStore("access_token"),
+    refresh: new LocalStore("refresh_token"),
   };
 
   constructor(key_) {
-    this.key = this.store_map[key_];
+    this.obj = this.store_map[key_];
   }
 
   setToken(token) {
     if (!token) {
       throw new Error("Token cannot be empty or null");
     }
-    localStorage.setItem(this.key, token);
+    this.obj.setValue(token);
   }
   getToken() {
-    return localStorage.getItem(this.key);
+    return this.obj.getValue();
   }
 
   clearToken() {
-    localStorage.removeItem(this.key);
+    return this.obj.clearValue();
   }
 }
 
