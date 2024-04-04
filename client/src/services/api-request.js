@@ -39,7 +39,7 @@ const apiRequest = async ({ method, url, params, data, timeout = 20 * 1000 }) =>
     signal: signal,
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Token ${access_token}`,
+      Authorization: `Bearer ${access_token}`,
     },
     body: JSON.stringify(data),
   });

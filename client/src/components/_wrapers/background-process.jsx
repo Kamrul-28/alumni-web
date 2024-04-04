@@ -46,5 +46,5 @@ export default function BackgroundProcess() {
     };
   }, [fetchToken]); // Re-run on changes to dependencies
 
-  return <div>background-process</div>;
+  return <div></div>;
 }

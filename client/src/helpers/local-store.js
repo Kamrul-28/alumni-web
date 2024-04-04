@@ -1,6 +1,7 @@
 class LocalStore {
   store_map = {
     refresh_token: `${import.meta.env.VITE_LOCAL_DB_PREFIX}_refresh_token`,
+    access_token: `${import.meta.env.VITE_LOCAL_DB_PREFIX}_access_token`,
   };
 
   constructor(key_) {
