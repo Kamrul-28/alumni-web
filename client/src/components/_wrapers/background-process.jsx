@@ -5,22 +5,26 @@ import { useMutation } from "@tanstack/react-query";
 import TokenStore from "helpers/token-store";
 
 import { postRefreshToken } from "services/rest-api/auth";
-// import { useUserContext } from "store/context/user";
+import { useUserContext } from "store/context/user";
 
 export default function BackgroundProcess() {
   const intervalRef = useRef(null);
-  // const { setLogout } = useUserContext();
+  const { setLogout } = useUserContext();
 
   const { mutate } = useMutation({
     mutationFn: postRefreshToken,
     onSuccess: (data) => {
-      const tokenStore = new TokenStore("access");
-      const { accessToken } = data || {};
-      tokenStore.setToken(accessToken);
+      const { token, refreshToken } = data || {};
+
+      const accessStore = new TokenStore("access");
+      accessStore.setToken(token);
+
+      const refreshStore = new TokenStore("refresh");
+      refreshStore.setToken(refreshToken);
     },
     onError: () => {
       toast.info("Access token can not updated!!");
-      // setLogout();
+      setLogout();
     },
     retry: 5,
     retryDelay: 60 * 1000,
