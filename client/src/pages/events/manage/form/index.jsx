@@ -1,13 +1,19 @@
 import { useCallback } from "react";
 import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
+import { useMutation } from "@tanstack/react-query";
 
 import { FieldController } from "components/_controllers";
 import { ManageAction } from "components/modules/actions";
 import { OutlineInputField } from "components/widgets/inputs";
 import { TextAreaInputField } from "components/widgets/inputs";
 
+import { ApiResponseLoader } from "components/modules/loaders";
+
 import useNavigation from "hooks/useNavigation";
+import { creatEvent } from "services/rest-api/events";
+import { handleFormError } from "services/error-handling";
 
 import _styles from "./_styles.module.css";
 
@@ -15,20 +21,29 @@ const Form = ({ instance, isUpdate }) => {
   const { backPath } = useNavigation();
 
   const defaultValues = {
-    title: instance?.title || "",
-    date: instance?.date || "",
-    keywords: instance?.keywords || "",
-    img_url: instance?.img_url || "",
-    applicant: instance?.applicant || "",
-    description: instance?.description || "",
+    eventName: instance?.eventName || "",
+    eventDate: instance?.eventDate || "",
+    eventTime: instance?.eventTime || "",
+    eventLink: instance?.eventLink || "",
+    eventLocation: instance?.eventLocation || "",
+    eventDescription: instance?.eventDescription || "",
   };
 
-  const { control, handleSubmit } = useForm({ defaultValues });
+  const { control, handleSubmit, setError } = useForm({ defaultValues });
 
-  const onSubmit = useCallback((data) => {
-    // mutate(data);
-    console.log("🚀 ~ file: index.jsx:35 ~ onSubmit ~ data:", data);
-  }, []);
+  const { isPending, mutate } = useMutation({
+    mutationFn: creatEvent,
+    onSuccess: (data) => {
+      toast.success("Successfully Create.");
+    },
+    onError: (error) => {
+      handleFormError(error, setError);
+    },
+  });
+
+  const onSubmit = (data) => {
+    mutate(data);
+  };
 
   const handleCancel = useCallback(
     (event) => {
@@ -37,48 +52,74 @@ const Form = ({ instance, isUpdate }) => {
     [backPath],
   );
 
+  if (isPending) return <ApiResponseLoader />;
+
   return (
     <div className={_styles.container}>
       <form className={_styles.form_container}>
         <div className={_styles.row_wraper}>
           <FieldController
-            name="title"
+            name="eventName"
             control={control}
             rules={{
               required: {
                 value: true,
-                message: "Please provide title",
+                message: "Please provide Title",
               },
             }}>
             <OutlineInputField label="Title" />
           </FieldController>
-          <FieldController name="keywords" control={control}>
-            <OutlineInputField label="Keyword" />
-          </FieldController>
-        </div>
-        <div className={_styles.row_wraper}>
           <FieldController
-            name="date"
+            name="eventLocation"
             control={control}
             rules={{
               required: {
                 value: true,
-                message: "Please provide date",
+                message: "Please provide Location",
+              },
+            }}>
+            <OutlineInputField label="Location" />
+          </FieldController>
+        </div>
+        <div className={_styles.row_wraper}>
+          <FieldController
+            name="eventDate"
+            control={control}
+            rules={{
+              required: {
+                value: true,
+                message: "Please provide Date",
               },
             }}>
             <OutlineInputField label="Date" type="date" />
+          </FieldController>
+          <FieldController
+            name="eventTime"
+            control={control}
+            rules={{
+              required: {
+                value: true,
+                message: "Please provide Time",
+              },
+            }}>
+            <OutlineInputField label="Time" type="time" />
+          </FieldController>
+        </div>
+        <div className={_styles.row_wraper}>
+          <FieldController name="eventLink" control={control}>
+            <OutlineInputField label="Link" type="url" />
           </FieldController>
           <FieldController name="img_url" control={control}>
             <OutlineInputField label="Upload Image" type="file" />
           </FieldController>
         </div>
         <FieldController
-          name="description"
+          name="eventDescription"
           control={control}
           rules={{
             required: {
               value: true,
-              message: "Please provide description",
+              message: "Please provide Description",
             },
           }}>
           <TextAreaInputField label="Description" />

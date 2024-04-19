@@ -1,35 +1,35 @@
 import apiRequest from "services/api-request";
 import ENDPOINTS from "services/rest-endpoints";
 
-export const totalUsers = (params = {}) =>
+export const totalEvents = (params = {}) =>
   apiRequest({
     method: "get",
-    url: ENDPOINTS.USERS,
+    url: ENDPOINTS.EVENTS,
     params: params,
   });
 
-export const userDetails = (ID, params = {}) =>
+export const eventDetails = (ID, params = {}) =>
   apiRequest({
     method: "get",
-    url: `${ENDPOINTS.USERS}/${ID}`,
+    url: `${ENDPOINTS.EVENTS}/${ID}`,
     params: params,
   });
 
-export const createUser = (data) =>
+export const creatEvent = (data) =>
   apiRequest({
     method: "post",
-    url: ENDPOINTS.USERS,
+    url: ENDPOINTS.EVENTS,
     data: data,
   });
 
-export const updateUser = (data) =>
+export const updateEvent = (data) =>
   apiRequest({
     method: "patch",
-    url: `${ENDPOINTS.USERS}/${data?.id}`,
+    url: `${ENDPOINTS.EVENTS}/${data?.id}`,
     data: data,
   });
-export const deleteUser = (ID) =>
+export const deleteEvent = (ID) =>
   apiRequest({
     method: "delete",
-    url: `${ENDPOINTS.USERS}/${ID}`,
+    url: `${ENDPOINTS.EVENTS}/${ID}`,
   });
