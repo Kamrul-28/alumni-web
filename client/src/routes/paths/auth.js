@@ -27,7 +27,7 @@ const AUTH_ROUTE = [
     is_authenticated: false,
   },
   {
-    path: "/reset-password",
+    path: "/reset-password/:token",
     component: ResetPassword,
     layout: CenterCardLayout,
     is_authenticated: false,
