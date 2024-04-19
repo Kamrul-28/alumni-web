@@ -20,9 +20,9 @@ const AppRoutes = () => {
 
           const LayoutView = (
             <Layout>
-              {/* <Authenticated is_authenticated={is_authenticated}> */}
-              <Component />
-              {/* </Authenticated> */}
+              <Authenticated is_authenticated={is_authenticated}>
+                <Component />
+              </Authenticated>
             </Layout>
           );
 
