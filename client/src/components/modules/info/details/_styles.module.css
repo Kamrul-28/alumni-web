@@ -1,0 +1,15 @@
+.container {
+    display: grid;
+    grid-template-columns: 180px auto;
+}
+
+.label {
+    color: theme('colors.text.primary');
+    text-transform: capitalize;
+   
+}
+.info {
+    color: theme('colors.text.secondary');
+    text-transform: capitalize;
+}
+

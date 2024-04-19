@@ -1,0 +1,21 @@
+export const DEFAULT_DATA = {
+  roll: "000200",
+  nickName: "demo user",
+  bloodGroup: "B_NEGATIVE",
+  dob: "2024-03-28",
+  photo: "",
+  // "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8qj7vqj7aZaD6dhml7gfswli38CGD8uRN1A&usqp=CAU",
+  presentAddress: "Nirala, khulna",
+  presentCity: "Khulna",
+  presentCountry: "Bangladesh",
+  permanentAddress: "kumarkhali, jashore",
+  permanentCity: "Bagerhat",
+  permanentCountry: "Bangladesh",
+  profession: "Developer",
+  designation: "full-stack Developer",
+  company: "microsoft",
+  companyAddress: "Dhaka, BD",
+  // extra fields
+  shortNote: "your professional bio should be as unique as you.",
+  mobile: "01*********",
+};

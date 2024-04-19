@@ -1,0 +1,6 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: theme('padding.container');
+    padding: theme('padding.container');
+}
