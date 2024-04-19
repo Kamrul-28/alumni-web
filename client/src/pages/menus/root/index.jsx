@@ -6,14 +6,13 @@ import { RootHeader } from "components/modules/headers";
 import { ApiResponseLoader } from "components/modules/loaders";
 
 import useNavigation from "hooks/useNavigation";
-import { getAllEvents } from "services/rest-api/events";
+import { getAllMenus } from "services/rest-api/menus";
 
-import { CARDS_ITEMS } from "./_data_";
 import _styles from "./_styles.module.css";
 
 import Card from "./card";
 
-const Events = () => {
+const Root = () => {
   const { query, setPath } = useNavigation();
 
   const [page, setPage] = useState(1);
@@ -24,13 +23,13 @@ const Events = () => {
   };
 
   const { data, isFetching } = useQuery({
-    queryKey: ["events", page],
-    queryFn: getAllEvents,
+    queryKey: ["menus", page],
+    queryFn: getAllMenus,
   });
 
   if (isFetching) return <ApiResponseLoader />;
 
-  const items = (Array.isArray(data) && data) || CARDS_ITEMS || [];
+  const items = (Array.isArray(data) && data) || [];
 
   return (
     <div className={_styles.container}>
@@ -40,9 +39,9 @@ const Events = () => {
           <Card key={index} instance={item} />
         ))}
       </div>
-      <BasePagination count={CARDS_ITEMS.length} onChange={handlePageChange} />
+      <BasePagination count={items.length} onChange={handlePageChange} />
     </div>
   );
 };
 
-export default Events;
+export default Root;

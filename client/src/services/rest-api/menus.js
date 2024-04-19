@@ -1,35 +1,35 @@
 import apiRequest from "services/api-request";
 import ENDPOINTS from "services/rest-endpoints";
 
-export const getAllEvents = (params = {}) =>
+export const getAllMenus = (params = {}) =>
   apiRequest({
     method: "get",
-    url: ENDPOINTS.EVENTS,
+    url: ENDPOINTS.MENUS,
     params: params,
   });
 
-export const getEvent = (ID, params = {}) =>
+export const getMenu = (ID, params = {}) =>
   apiRequest({
     method: "get",
-    url: `${ENDPOINTS.EVENTS}/${ID}`,
+    url: `${ENDPOINTS.MENUS}/${ID}`,
     params: params,
   });
 
-export const postEvent = (data) =>
+export const postMenu = (data) =>
   apiRequest({
     method: "post",
-    url: ENDPOINTS.EVENTS,
+    url: ENDPOINTS.MENUS,
     data: data,
   });
 
-export const patchEvent = (data) =>
+export const patchMenu = (data) =>
   apiRequest({
     method: "patch",
-    url: `${ENDPOINTS.EVENTS}/${data?.id}`,
+    url: `${ENDPOINTS.MENUS}/${data?.id}`,
     data: data,
   });
-export const deleteEvent = (ID) =>
+export const deleteMenu = (ID) =>
   apiRequest({
     method: "delete",
-    url: `${ENDPOINTS.EVENTS}/${ID}`,
+    url: `${ENDPOINTS.MENUS}/${ID}`,
   });

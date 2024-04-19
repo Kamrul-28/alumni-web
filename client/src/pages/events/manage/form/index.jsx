@@ -12,7 +12,7 @@ import { TextAreaInputField } from "components/widgets/inputs";
 import { ApiResponseLoader } from "components/modules/loaders";
 
 import useNavigation from "hooks/useNavigation";
-import { creatEvent } from "services/rest-api/events";
+import { postEvent } from "services/rest-api/events";
 import { handleFormError } from "services/error-handling";
 
 import _styles from "./_styles.module.css";
@@ -32,7 +32,7 @@ const Form = ({ instance, isUpdate }) => {
   const { control, handleSubmit, setError } = useForm({ defaultValues });
 
   const { isPending, mutate } = useMutation({
-    mutationFn: creatEvent,
+    mutationFn: postEvent,
     onSuccess: (data) => {
       toast.success("Successfully Create.");
     },
