@@ -33,3 +33,10 @@ export const deleteUser = (ID) =>
     method: "delete",
     url: `${ENDPOINTS.USERS}/${ID}`,
   });
+
+export const getUserInfo = (params = {}) =>
+  apiRequest({
+    method: "get",
+    url: `${ENDPOINTS.USERS}`,
+    params: params,
+  });
