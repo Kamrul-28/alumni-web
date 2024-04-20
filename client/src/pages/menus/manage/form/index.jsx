@@ -21,8 +21,8 @@ const Form = ({ instance, isUpdate }) => {
 
   const defaultValues = {
     name: instance?.name || "",
-    type: instance?.type || "",
     link: instance?.link || "",
+    identifier: instance?.identifier || "",
   };
 
   const { control, handleSubmit, setError } = useForm({ defaultValues });
@@ -66,17 +66,20 @@ const Form = ({ instance, isUpdate }) => {
             <OutlineInputField label="Name" />
           </FieldController>
           <FieldController
-            name="link"
+            name="identifier"
             control={control}
             rules={{
               required: {
                 value: true,
-                message: "Please provide link",
+                message: "Please provide identifier",
               },
             }}>
-            <OutlineInputField label="link" />
+            <OutlineInputField label="Identifier" />
           </FieldController>
         </div>
+        <FieldController name="link" control={control}>
+          <OutlineInputField label="link" />
+        </FieldController>
         <ManageAction
           onSubmit={handleSubmit(onSubmit)}
           onCancel={handleCancel}

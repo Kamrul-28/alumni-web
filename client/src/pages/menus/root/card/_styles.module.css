@@ -16,7 +16,7 @@
     color: theme('colors.primary.main');
 }
 
-.type {
+.identifier {
     padding: 2px 8px;
     border-radius: 5px;
     background-color: theme("colors.primary.light");
