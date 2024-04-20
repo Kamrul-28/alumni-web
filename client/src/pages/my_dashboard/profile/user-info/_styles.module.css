@@ -1,33 +1,27 @@
 .container {
-    min-height: 75vh;
-    color: theme('colors.primary.main');
-    background-color: theme("colors.background.white");
-    border-radius: 6px;
-    box-shadow: 0px 0px 12px theme('colors.primary.light');
-}
-
-.info_wraper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 5px;
+    border-radius: 5px;
+    padding: theme('padding.card');
+    color: theme('colors.primary.main');
+    background-color: theme("colors.background.white");
+    box-shadow: 0px 0px 12px theme('colors.primary.light');
 }
 
+
 .avatar {
-    margin-top: 20px;
-    min-width: 80px;
     width: 130px;
-    min-height: 80px;
     height: 130px;
     border-radius: 50%;
     border: 3px solid theme("colors.primary.main");
-} 
+}
 
 .avatar img {
     width: 100%;
     height: 100%;
-    border-radius: 50%; 
+    border-radius: 50%;
     padding: 4px;
 }
 
@@ -37,11 +31,18 @@
     text-transform: capitalize;
 }
 
+.short_bio {
+    font-style: italic;
+    text-align: center;
+    font-weight: theme("fontWeight.semibold");
+    color: theme('colors.text.primary');
+}
+
 .social_icons {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px; 
+    gap: 10px;
 }
 
 .social_link {
@@ -52,68 +53,8 @@
 .social_link:hover {
     fill: theme('colors.primary.main');
     color: theme('colors.background.white');
-
 }
 
-.short_bio {
-    font-style: italic;
-    text-align: center;
-    line-height: 18px;
-    margin-bottom: 10px;
-    font-weight: theme("fontWeight.semibold");
-    color: theme('colors.text.primary');
+@media (max-width: theme('screens.md')) {}
 
-}
-
-@media (max-width: theme('screens.md')) {
-    .avatar {
-        min-width: 50px;
-        width: 100px;
-        min-height: 50px;
-        height: 100px;
-        border: 2px solid theme("colors.background.primary");
-    }
-    .avatar img {
-        padding: 2px;
-    }
-    .name {
-        font-size: theme('fontSize.md');
-    }
-    .social_icons {
-        gap: 10px;
-    }
-    .social_link svg {
-        width: 18px;
-        height:18px
-    }
-    .short_bio {
-        font-size: theme('fontSize.base');
-    }
-}
-
-@media (max-width : theme('screens.xs')) {
-    .avatar {
-        min-width: 50px;
-        width: 70px;
-        min-height: 50px;
-        height: 70px;
-        border: 1px solid theme("colors.background.primary");
-    }
-    .avatar img {
-        padding: 1px;
-    }
-    .name {
-        font-size: theme('fontSize.sm');
-    }
-    .social_icons {
-        gap: 5px;
-    }
-    .social_link svg {
-        width: 12px;
-        height:12px
-    }
-    .short_bio {
-        font-size: theme('fontSize.sm');
-    }
-}
-
+@media (max-width : theme('screens.xs')) {}
